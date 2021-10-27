@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@components/Button';
+import Img from '@components/Img';
 
 class App extends React.Component {
   render() {
@@ -7,6 +8,7 @@ class App extends React.Component {
     return (
       <>
         <h1 className="text-4xl text-black bg-red-50">Hello {name}</h1>
+        <Img />
       </>
     );
   }
