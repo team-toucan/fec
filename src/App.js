@@ -1,11 +1,8 @@
 import React from 'react';
-import Button from '@components/Button';
-import Img from '@components/Img';
 import Navbar from '@components/Navbar';
 
 class App extends React.Component {
   render() {
-    const { name } = this.props;
     return (
       <>
         <div class="container mx-auto">

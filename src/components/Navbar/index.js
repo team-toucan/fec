@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className="text-sm lg:flex-grow"></div>
         <div className="justify-end flex">
           <input
-            class="appearance-none bg-transparent w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none border-b-2 border-red"
+            class=" text-white appearance-none bg-transparent w-full  mr-3 py-1 px-2 leading-tight focus:outline-none border-b-2 border-red"
             type="text"
             aria-label="Full name"
           />

@@ -47,11 +47,6 @@ const config = {
       },
     ],
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': dotenv.parsed,
-    }),
-  ],
   devServer: {
     static: {
       directory: './dist',
