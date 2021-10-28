@@ -1,21 +1,21 @@
 const webpack = require('webpack');
 const path = require('path');
+const dotenv = require('dotenv').config({
+  path: path.join(__dirname, '.env'),
+});
 
 const config = {
-  entry: [
-    'react-hot-loader/patch',
-    './src/index.js'
-  ],
+  entry: ['react-hot-loader/patch', './src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -24,15 +24,15 @@ const config = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1
-            }
+              importLoaders: 1,
+            },
           },
-          'postcss-loader'
-        ]
+          'postcss-loader',
+        ],
       },
       {
         test: /\.svg$/,
-        use: 'file-loader'
+        use: 'file-loader',
       },
       {
         test: /\.png$/,
@@ -40,18 +40,23 @@ const config = {
           {
             loader: 'url-loader',
             options: {
-              mimetype: 'image/png'
-            }
-          }
-        ]
-      }
-    ]
+              mimetype: 'image/png',
+            },
+          },
+        ],
+      },
+    ],
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': dotenv.parsed,
+    }),
+  ],
   devServer: {
-    'static': {
-      directory: './dist'
-    }
-  }
+    static: {
+      directory: './dist',
+    },
+  },
 };
 
 module.exports = config;
