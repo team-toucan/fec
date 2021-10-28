@@ -1,11 +1,11 @@
 import axios from 'axios';
-import apiKey from '../../config.js';
+// import apiKey from '../../config.js';
 
 console.log('apiKey', apiKey);
 
 const baseUrl = axios.create({
   baseURL: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-nyc',
-  headers: { authorization: apiKey },
+  // headers: { authorization: apiKey },
 });
 
 /*
