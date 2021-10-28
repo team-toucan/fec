@@ -1,8 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const dotenv = require('dotenv').config({
-  path: path.join(__dirname, '.env'),
-});
 
 const config = {
   entry: ['react-hot-loader/patch', './src/index.js'],
