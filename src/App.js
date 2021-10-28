@@ -1,34 +1,57 @@
-import React, {Component} from 'react';
-import Button from '@components/Button';
-import Img from '@components/Img';
-import Heading from '@components/Headings';
-import { getAllProducts } from './api/index.js';
+import React from 'react';
+import { Switch, Route, Link } from 'react-router-dom';
+import Navbar from '@components/Navbar';
+import ProductShow from '@components/ProductShow';
 
-// console.log('get all products ', getAllProducts.then(() => {}));
-getAllProducts()
-  .then((response) => {
-  console.log(response);
-});
+import { getAllProducts } from './api';
 
-class App extends Component {
+class App extends React.Component {
   state = {
-    products: []
+    products: [],
+  };
+  componentDidMount() {
+    getAllProducts().then((res) => {
+      this.setState({
+        products: res.data,
+      });
+    });
   }
-
-  componentDidMount () {
-    getAllProducts()
-      .then((response) => this.setState({products: response.data}))
-
-  }
-
   render() {
-    const { name } = this.props;
-    console.log(this.state)
+    console.log(this.state);
     return (
       <>
-        <Heading />
-        <h1 className="text-4xl text-black bg-red-50" onClick={this.handleClick}>Hello {name}</h1>
-        <Img />
+        <div class="container mx-auto">
+          {/* <Navbar /> */}
+
+          <nav>
+            <ul>
+              <li>
+                <Link to="/products">products</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/users">Users</Link>
+              </li>
+            </ul>
+          </nav>
+          <Switch>
+            <Route path="/products/:id">
+              <ProductShow />
+            </Route>
+          </Switch>
+          {/* <div class="grid grid-cols-8">
+            <div class="col-span-5">4</div>
+            <div class="col-span-3">3</div>
+          </div>
+        </div>
+        <div class="container px-36 mx-auto">
+          <div class="grid grid-cols-8">
+            <div class="col-span-5">5</div>
+            <div class="col-span-3">3</div>
+          </div> */}
+        </div>
       </>
     );
   }
