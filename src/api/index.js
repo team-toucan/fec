@@ -1,5 +1,5 @@
 import axios from 'axios';
-import apiKey from '../../config.js';
+
 
 console.log('apiKey', apiKey);
 

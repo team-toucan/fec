@@ -1,7 +1,6 @@
-import axios from 'axios';
-import apiKey from '../../config.js';
+const axios = require('axios');
+const apiKey = process.env.apiKey;
 
-console.log('apiKey', apiKey);
 
 const baseUrl = axios.create({
   baseURL: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-nyc',
@@ -47,4 +46,4 @@ const getProductReviewMetaData = (productId) =>
 // const getProductReviewMetaData = (productId) =>
 //   baseUrl.get(`/reviews/meta?product_id=${productId}`);
 
-export { getAllProducts, getProductReviews, getProductById };
+module.exports =  { getAllProducts, getProductReviews };
