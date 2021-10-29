@@ -1,7 +1,9 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-
+const api = require('./api')
+require('dotenv').config();
+console.log(process.env)
 
 
 //middleware
@@ -14,6 +16,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'))
 
 })
+
+
 
 
 
