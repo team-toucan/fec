@@ -7,9 +7,6 @@ node_modules/
 *.log
 config.js
 .env
-src/components/Overview/api/*
-src/App.js
-src/api/*
 
 # OS generated files
 .DS_Store
