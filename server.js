@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const api = require('./api')
 require('dotenv').config();
-console.log(process.env)
+console.log('apiKey',process.env.apiKey)
 
 
 //middleware
