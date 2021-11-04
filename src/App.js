@@ -3,6 +3,8 @@ import { Switch, Route, Link } from 'react-router-dom';
 import Navbar from '@components/Navbar';
 import ProductShow from '@components/ProductShow';
 
+import RelatedItems from '@components/RelatedItems';
+
 import { getAllProducts } from './api';
 
 class App extends React.Component {
@@ -36,6 +38,8 @@ class App extends React.Component {
               </li>
             </ul>
           </nav>
+
+          <RelatedItems />
           <Switch>
             <Route path="/products/:id">
               <ProductShow />
