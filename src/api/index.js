@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+const apiKey = process.env.apiKey;
+
 
 console.log('apiKey', apiKey);
 
