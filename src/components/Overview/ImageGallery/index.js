@@ -1,7 +1,7 @@
 import React from 'react';
 import DefaultView from '@components/Overview/ImageGallery/DefaultView.jsx';
 
-const Heading = ({ state }) => {
+const ImageGallery = ({ state }) => {
   return (
     <div>
       <h1>Image Gallery</h1>
@@ -10,4 +10,4 @@ const Heading = ({ state }) => {
   );
 };
 
-export default Heading;
+export default ImageGallery;

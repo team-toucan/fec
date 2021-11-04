@@ -4,7 +4,7 @@ import ProductInfo from '@components/Overview/ProductInfo';
 import StyleSelector from '@components/Overview/StyleSelector';
 import AddToCart from '@components/Overview/AddToCart';
 
-import { getAllProducts, getProductById, getProductStyleById } from './api';
+import { getAllProducts, getProductById, getProductStyleById } from '../../api';
 
 const tempState = { productById: {}, productStyleById: {} };
 
@@ -18,7 +18,7 @@ getProductStyleById(39333).then((res) => {
   tempState.productStyleById = res.data;
 });
 
-const Heading = () => {
+const Overview = () => {
   console.log('temp state', tempState);
   return (
     <div>
@@ -31,4 +31,4 @@ const Heading = () => {
   );
 };
 
-export default Heading;
+export default Overview;
