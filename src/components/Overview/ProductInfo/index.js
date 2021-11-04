@@ -10,12 +10,12 @@ const ProductInfo = ({ state }) => {
   return (
     <div>
       <h1>Product Info</h1>
-      <Price state={state} />
-      <ProductCategory state={state} />
-      <ProductOverview state={state} />
-      <ProductTitle state={state} />
-      <Share state={state} />
       <StarRating state={state} />
+      <ProductCategory state={state} />
+      <ProductTitle state={state} />
+      <Price state={state} />
+      <ProductOverview state={state} />
+      <Share state={state} />
     </div>
   );
 };
