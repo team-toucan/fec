@@ -3,7 +3,7 @@ import React from 'react';
 const ProductCategory = ({ state }) => {
   return (
     <div>
-      <h1>ProductCategory</h1>
+      <h1>{state.productById.category}</h1>
     </div>
   );
 };
