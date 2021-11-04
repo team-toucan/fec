@@ -42,6 +42,24 @@ const getProductReviewMetaData = (productId) =>
 
 */
 
+export const getQuestionsByProductId = (id, page, count) =>
+  baseUrl.get(`/qa/questions?product_id=${id}`);
+
+export const getAnswersBuQuestionId = (question_id, page, count) =>
+  baseUrl.get(`/qa/questions/${question_id}/answers`);
+
+export const createQuestion = (body, name, email, product_id) =>
+  baseUrl({
+    method: 'post',
+    url: '/qa/questions',
+    data: {
+      body: 'hello how are you',
+      name: 'hello there',
+      email: 'mmmm@yahoo.com',
+      product_id: 39337,
+    },
+  });
+
 // const getProductReviewMetaData = (productId) =>
 //   baseUrl.get(`/reviews/meta?product_id=${productId}`);
 
