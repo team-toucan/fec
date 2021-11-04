@@ -6,7 +6,7 @@ import AddToCart from '@components/Overview/AddToCart';
 
 import { getAllProducts, getProductById, getProductStyleById } from '../../api';
 
-const tempState = { productById: {}, productStyleById: {} };
+const tempState = { productById: {}, productStyleById: {}, currentStyle: 0 };
 
 getProductById(39333).then((res) => {
   console.log('success', res.data);
