@@ -1,12 +1,13 @@
 import React from 'react';
 import DefaultView from '@components/Overview/ImageGallery/DefaultView.jsx';
+import { ImageGalleryDiv } from './imageGalleryStyles';
 
 const ImageGallery = ({ state }) => {
   return (
-    <div>
-      <h1>Image Gallery</h1>
+    <ImageGalleryDiv>
+      {/* <h1>Image Gallery</h1> */}
       <DefaultView state={state} />
-    </div>
+    </ImageGalleryDiv>
   );
 };
 
