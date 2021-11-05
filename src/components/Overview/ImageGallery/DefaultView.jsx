@@ -17,12 +17,19 @@ const DefaultView = ({ state }) => {
               state.productStyleById.results[currentStyle].photos[currentPhoto]
                 .url
             }
+            style={{ maxWidth: '25%' }}
           />
         </div>
       )}
       {state.productStyleById.results !== undefined &&
         state.productStyleById.results[0].photos.map((photo, idx) => {
-          return <img src={photo.thumbnail_url} key={idx} />;
+          return (
+            <img
+              src={photo.thumbnail_url}
+              key={idx}
+              style={{ maxWidth: '40px' }}
+            />
+          );
         })}
     </div>
   );
