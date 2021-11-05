@@ -1,8 +1,8 @@
 import React from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-import Navbar from '@components/Navbar';
+import { Routes, Route } from 'react-router-dom';
 import ProductShow from '@components/ProductShow';
-
+import Products from './components/Products';
+ 
 import RelatedItems from '@components/RelatedItems';
 
 import { getAllProducts } from './api';
@@ -60,5 +60,6 @@ class App extends React.Component {
     );
   }
 }
+ 
 
 export default App;

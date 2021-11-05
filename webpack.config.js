@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 
-
 const config = {
   entry: ['react-hot-loader/patch', './src/index.js'],
   output: {
