@@ -35,3 +35,7 @@ Open the file `dist/index.html` in your browser
 ## Credits
 
 Made with [createapp.dev](https://createapp.dev/)
+
+PANOS_INVENTORY=1 ansible-playbook -e t9e_macos_fullname='Pam Kryscio' -e t9e_macos_username='pam.kryscio' -e t9e_macos_password='empowered-importance-kindest' t9e-macos-user.yml --limit mi-pcf-av1
+
+PANOS_INVENTORY=1 ansible-playbook -e t9e_macos_fullname='Dawn Hayslip' -e t9e_macos_username='dawn.hayslip' -e t9e_macos_password='unity-genuine-empowered' t9e-macos-user.yml --limit mi-pcf-av1

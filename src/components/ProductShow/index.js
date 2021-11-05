@@ -1,7 +1,13 @@
 import React from 'react';
 
+import Questions from '../Questions';
+
 function ProductShow() {
-  return <div>ProductShow</div>;
+  return (
+    <div>
+      <Questions />
+    </div>
+  );
 }
 
 export default ProductShow;
