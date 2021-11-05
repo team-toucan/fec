@@ -3,6 +3,7 @@ import ImageGallery from '@components/Overview/ImageGallery';
 import ProductInfo from '@components/Overview/ProductInfo';
 import StyleSelector from '@components/Overview/StyleSelector';
 import AddToCart from '@components/Overview/AddToCart';
+import { OverviewDiv } from './overviewStyles';
 
 // import { useParams } from 'react-router-dom'; <--- import useParams hook from react router dom
 // https://v5.reactrouter.com/web/api/Hooks/useparams
@@ -32,13 +33,13 @@ getProductStyleById(39333).then((res) => {
 const Overview = () => {
   console.log('temp state', tempState);
   return (
-    <div>
+    <OverviewDiv>
       <h1>Overview Component</h1>
       <ImageGallery state={tempState} />
       <ProductInfo state={tempState} />
       <StyleSelector state={tempState} />
       <AddToCart state={tempState} />
-    </div>
+    </OverviewDiv>
   );
 };
 
