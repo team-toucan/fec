@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Modal = ({ isShowing, setIsShowing, children }) => {
-  console.log('🚀 ~ file: index.js ~ line 4 ~ Modal ~ children', children);
   return (
     <div className="modal" style={{ display: isShowing ? 'block' : 'none' }}>
       <div className="modal-content">

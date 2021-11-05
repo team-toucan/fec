@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
+
 import { useParams } from 'react-router-dom';
 
-import Question from '../Question';
-import Answers from '../Answers';
-import Modal from '../Modal';
+import Question from '@components/Question';
+import Answers from '@components/Answers';
+import Modal from '@components/Modal';
+import QuestionForm from '@components/QuestionForm';
 
-import { getQuestionsByProductId, createQuestion } from '../../api';
+import { StyledDiv } from './styles';
+
+import { getQuestionsByProductId, createQuestion } from '@api';
 
 function Questions() {
   const { id } = useParams();
@@ -22,21 +26,26 @@ function Questions() {
     setSearchInput(searchValue);
   };
 
+  const doMarkQuestionAsHelpful = (question_id) => {
+    const t = questions.map((q) => {
+      if (q.question_id === question_id) {
+        q.question_helpfulness = q.question_helpfulness + 1;
+      }
+      return q;
+    });
+    setQuestions(t);
+  };
+
   const doCreateQuestion = async () => {
     try {
       createQuestion().then((res) => console.log(res));
-      console.log('🚀 ~ file: index.js ~ line 27 ~ doCreateQuestion ~ t', t);
     } catch (err) {
-      console.log(
-        '🚀 ~ file: index.js ~ line 35 ~ doCreateQuestion ~ err',
-        err
-      );
       console.log(err);
     }
   };
 
   return (
-    <div>
+    <StyledDiv>
       <input
         className="border-2 border-black"
         type="text"
@@ -45,23 +54,18 @@ function Questions() {
       />
       {questions.map((q, i) => (
         <div style={{ border: '1px solid red' }}>
-          <Question question={q} />
+          <Question
+            question={q}
+            doMarkQuestionAsHelpful={doMarkQuestionAsHelpful}
+          />
           <Answers question_id={q.question_id} />
         </div>
       ))}
       <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
-        <h1>hello there</h1>
-        <h1>hello there</h1>
-        <h1>hello there</h1>
-        <h1>hello there</h1>
-        <h1>hello there</h1>
-        <h1>hello there</h1>
-        <h1>hello there</h1>
-        <h1>hello there</h1>
-        <button onClick={() => doCreateQuestion()}>Add</button>
+        <QuestionForm />
       </Modal>
       <button onClick={() => setIsShowing(true)}>Add Question</button>
-    </div>
+    </StyledDiv>
   );
 }
 
