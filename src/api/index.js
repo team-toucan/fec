@@ -16,7 +16,7 @@ const getAllProducts = () => baseUrl.get('/products');
 
 const getProductById = (productId) => baseUrl.get(`/products/${productId}`);
 
-const getProductStyleById = (productId) =>
+export const getProductStyleById = (productId) =>
   baseUrl.get(`/products/${productId}/styles`);
 
 

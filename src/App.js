@@ -38,8 +38,9 @@ class App extends React.Component {
               </li>
             </ul>
           </nav>
-
           <RelatedItems />
+
+
           <Switch>
             <Route path="/products/:id">
               <ProductShow />
