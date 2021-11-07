@@ -1,7 +1,6 @@
 import axios from 'axios';
 import API_KEY from '../../config';
 
-
 const baseUrl = axios.create({
   baseURL: 'https://app-hrsei-api.herokuapp.com/api/fec2/hr-nyc',
   headers: { authorization: API_KEY },
@@ -19,8 +18,8 @@ const getProductById = (productId) => baseUrl.get(`/products/${productId}`);
 const getProductStyleById = (productId) =>
   baseUrl.get(`/products/${productId}/styles`);
 
-
-export const getRelatedProductsById = (productId) => baseUrl.get(`/products/${productId}/related`);
+const getRelatedProductsById = (productId) =>
+  baseUrl.get(`/products/${productId}/related`);
 
 /*
 
