@@ -89,4 +89,9 @@ export const reportAnswer = (answer_id) =>
 // const getProductReviewMetaData = (productId) =>
 //   baseUrl.get(`/reviews/meta?product_id=${productId}`);
 
-export { getAllProducts, getProductReviews, getProductById};
+export {
+  getAllProducts,
+  getProductReviews,
+  getProductById,
+  getProductStyleById,
+};
