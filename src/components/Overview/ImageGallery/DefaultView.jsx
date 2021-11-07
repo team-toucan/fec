@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { DefaultViewDiv } from './imageGalleryStyles';
 
 const DefaultView = ({ state }) => {
   const [currentStyle, updateStyle] = useState(0);
@@ -9,22 +10,29 @@ const DefaultView = ({ state }) => {
   }
 
   return (
-    <div>
+    <>
       {state.productStyleById.results !== undefined && (
-        <div>
+        <DefaultViewDiv>
           <img
             src={
               state.productStyleById.results[currentStyle].photos[currentPhoto]
                 .url
             }
+            style={{ maxWidth: '300px' }}
           />
-        </div>
+        </DefaultViewDiv>
       )}
       {state.productStyleById.results !== undefined &&
         state.productStyleById.results[0].photos.map((photo, idx) => {
-          return <img src={photo.thumbnail_url} key={idx} />;
+          return (
+            <img
+              src={photo.thumbnail_url}
+              key={idx}
+              style={{ maxWidth: '40px' }}
+            />
+          );
         })}
-    </div>
+    </>
   );
 };
 
