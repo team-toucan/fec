@@ -1,7 +1,9 @@
 import React from 'react';
 
 function ProductShow() {
-  return <div>ProductShow
+  return <div>
+          <RelatedItems />
+
 
 
   </div>;

@@ -48,9 +48,6 @@ const Card = ({ relatedId }) => {
           />
           </div>
           <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
-            {features.map((item) => (
-              console.log('inside FEAT MODAL', item.feature)
-            ))}
           </Modal>
       </div>
 

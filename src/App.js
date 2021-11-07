@@ -38,7 +38,6 @@ class App extends React.Component {
               </li>
             </ul>
           </nav>
-          <RelatedItems />
 
 
           <Switch>
