@@ -1,12 +1,17 @@
 import React from 'react';
+import RelatedItems from '@components/RelatedItems';
+
 
 function ProductShow() {
-  return <div>
-          <RelatedItems />
+  return (
+  <div>
+    <RelatedItems />
 
 
 
-  </div>;
+
+  </div>
+  )
 }
 
 export default ProductShow;
