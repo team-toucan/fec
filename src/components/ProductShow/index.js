@@ -2,16 +2,16 @@ import React from 'react';
 import RelatedItems from '@components/RelatedItems';
 
 
+import Questions from '../Questions';
+import Overview from '@components/Overview';
+
 function ProductShow() {
   return (
-  <div>
-    <RelatedItems />
-
-
-
-
-  </div>
-  )
+    <div>
+      <Overview />
+      <Questions />
+    </div>
+  );
 }
 
 export default ProductShow;
