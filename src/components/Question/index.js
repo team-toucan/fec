@@ -4,7 +4,8 @@ import AnswerForm from '@components/AnswerForm';
 import Modal from '@components/Modal';
 import { markQuestionAsHelpful } from '@api';
 
-const Question = ({ question, doMarkQuestionAsHelpful }) => {
+const Question = ({ question, doMarkQuestionAsHelpful, isHidden }) => {
+  console.log('🚀 ~ file: index.js ~ line 8 ~ Question ~ isHidden', isHidden);
   const [isShowing, setIsShowing] = useState(false);
   const doUpdateHelpfulness = async () => {
     try {
@@ -20,7 +21,7 @@ const Question = ({ question, doMarkQuestionAsHelpful }) => {
     }
   };
   return (
-    <div className="my-2" style={{ display: 'flex' }}>
+    <div className="my-2" style={{ display: isHidden ? 'none' : 'flex' }}>
       <h1 className="font-bold text-xl gary">
         <span>Q:</span> {question.question_body}
       </h1>

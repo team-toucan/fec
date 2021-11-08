@@ -2,20 +2,19 @@ import React, { useEffect, useState } from 'react';
 
 import { useParams } from 'react-router-dom';
 
+import { getQuestionsByProductId } from '@api';
+
 import Question from '@components/Question';
 import Answers from '@components/Answers';
 import Modal from '@components/Modal';
 import QuestionForm from '@components/QuestionForm';
 
-import { StyledDiv } from './styles';
-
-import { getQuestionsByProductId, createQuestion } from '@api';
-
 function Questions() {
   const { id } = useParams();
   const [questions, setQuestions] = useState([]);
   const [searchInput, setSearchInput] = useState('');
-  const [isShowing, setIsShowing] = useState(false);
+  const [isShowingModal, setIsShowingModal] = useState(false);
+  const [isShowingMoreQuestions, setIsShowingMoreAnswers] = useState(false);
 
   useEffect(async () => {
     const { data } = await getQuestionsByProductId(id);
@@ -37,7 +36,7 @@ function Questions() {
   };
 
   return (
-    <StyledDiv>
+    <div>
       <h1 className="my-5">QUESTIONS AND ANSWERS</h1>
       <div class="relative flex w-full flex-wrap items-stretch mb-3">
         <input
@@ -62,14 +61,14 @@ function Questions() {
           </svg>
         </span>
       </div>
-      {/* <div className="mb-3 pt-0">
-
-
-      </div> */}
-      {/*  */}
 
       {questions.map((q, i) => (
-        <div key={i}>
+        <div
+          key={i}
+          style={{
+            display: i < 2 || isShowingMoreQuestions ? 'block' : 'none',
+          }}
+        >
           <Question
             question={q}
             doMarkQuestionAsHelpful={doMarkQuestionAsHelpful}
@@ -77,24 +76,29 @@ function Questions() {
           <Answers question_id={q.question_id} />
         </div>
       ))}
-      <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
+      <Modal isShowing={isShowingModal} setIsShowing={setIsShowingModal}>
         <QuestionForm />
       </Modal>
       <div className="my-4">
-        <button
-          className="bg-transparent hover:bg-gray-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent "
-          onClick={() => setIsShowing(true)}
-        >
-          More Answered Questions
-        </button>
+        {questions.length > 2 && (
+          <button
+            className="bg-transparent hover:bg-gray-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent "
+            onClick={() => setIsShowingMoreAnswers(!isShowingMoreQuestions)}
+          >
+            {isShowingMoreQuestions
+              ? 'Show Less Questions'
+              : ' More Answered Questions'}
+          </button>
+        )}
+
         <button
           className="bg-transparent hover:bg-gray-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent ml-5"
-          onClick={() => setIsShowing(true)}
+          onClick={() => setIsShowingModal(true)}
         >
           Add a Question +
         </button>
       </div>
-    </StyledDiv>
+    </div>
   );
 }
 
