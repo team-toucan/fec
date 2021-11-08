@@ -38,3 +38,11 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.pointer {
+  cursor: pointer;
+}
+
+.gary {
+  color: #525252;
+}

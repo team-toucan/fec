@@ -29,12 +29,16 @@ const Answer = ({ answer, doUpdateAnswers, doUpdateHelpfulness }) => {
     }
   };
   return (
-    <div>
-      <h1>A: {answer.body}</h1>
-      <div>
+    <div className="my-2">
+      <h1>
+        <span className="font-bold text-xl gary">A:</span> {answer.body}
+      </h1>
+      <div className="my-2">
         by {answer.answerer_name} | Helpful?{' '}
-        <span onClick={doMarkAnswerAsHelpful}>Yes({answer.helpfulness})</span> |{' '}
-        <span onClick={doReportAnswer}>Report</span>
+        <span className="underline" onClick={doMarkAnswerAsHelpful}>
+          Yes
+        </span>{' '}
+        ({answer.helpfulness}) | <span onClick={doReportAnswer}>Report</span>
       </div>
       {answer.photos.map((p) => (
         <img scr={p} style={{ maxWidth: '40px' }} />
