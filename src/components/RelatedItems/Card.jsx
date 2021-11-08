@@ -36,8 +36,8 @@ const Card = ({ relatedId }) => {
   return (
     console.log('feat in CARD RETURN', features),
 
-      <div>
-        <div>
+      <div >
+        <div >
         <p>{item.category}</p>
         <h3>{item.name}</h3>
         <p>{item.default_price}</p>

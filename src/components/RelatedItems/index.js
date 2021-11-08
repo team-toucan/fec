@@ -7,13 +7,11 @@ import { getRelatedProductsById } from '../../api';
 const RelatedItems = () => {
   const { id } = useParams();
   const [relateditems, updateRelated] = useState([]);
-  console.log('state arr', relateditems)
+
   useEffect(() => {
     const getrelateditems = async () => {
       const resp = await getRelatedProductsById(id);
-      console.log('response', resp.data);
       const data = resp.data;
-      console.log('dat', data);
       updateRelated(data);
     }
     getrelateditems();
@@ -24,7 +22,7 @@ const RelatedItems = () => {
 
     {relateditems.map((item, i) => (
       console.log('passing into card', item),
-    <div style={{ border: '1px solid blue' }}>
+    <div style={{ border: '1px solid blue', display: 'inline-flex', overflow: 'hidden', height: '250px', width: '140px'}}>
       <Card relatedId={item} />
     </div>
   ))}

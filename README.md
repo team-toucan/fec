@@ -1,41 +1,37 @@
-# empty-project
+# FEC
 
-Empty project.
+NYC-39 Team Toucan Front End Capstone Repository
 
-## Building and running on localhost
+## Running the App Locally
 
-First install dependencies:
+1. Make sure you've pulled the version you want to run
+2. Make a 'config.js' in your main directory
+3. Within config.js assign the `API_KEY` variable to your GitHub token
+4. Install dependencies
 
-```sh
-npm install
-```
+    ```bash
+    npm install
+    ```
 
-To run in hot module reloading mode:
+5. In one terminal, build the webpack bundle
 
-```sh
-npm start
-```
+    ```bash
+    npm run build-dev
+    ```
 
-To create a production build:
+6. In another terminal, start the server
 
-```sh
-npm run build-prod
-```
+    ```bash
+    npm run start
+    ```
 
-To create a development build:
+7. Navigate to [localhost:3000](http://localhost:3000) in your browser
 
-```sh
-npm run build-dev
-```
 
-## Running
+### Guidelines
 
-Open the file `dist/index.html` in your browser
+- Create a branch for each new feature using `git checkout -b <feature_name>`
+- Abstain from working directly on the `main` branch, changes are merged to `dev` first.
+- Another team member should review a pull request prior to merge
+- Commit changes frequently
 
-## Credits
-
-Made with [createapp.dev](https://createapp.dev/)
-
-PANOS_INVENTORY=1 ansible-playbook -e t9e_macos_fullname='Pam Kryscio' -e t9e_macos_username='pam.kryscio' -e t9e_macos_password='empowered-importance-kindest' t9e-macos-user.yml --limit mi-pcf-av1
-
-PANOS_INVENTORY=1 ansible-playbook -e t9e_macos_fullname='Dawn Hayslip' -e t9e_macos_username='dawn.hayslip' -e t9e_macos_password='unity-genuine-empowered' t9e-macos-user.yml --limit mi-pcf-av1
