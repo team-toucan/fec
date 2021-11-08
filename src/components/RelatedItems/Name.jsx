@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Name = ({ itemName }) => {
-  console.log('in name', itemName)
+  console.log("in name", itemName);
   return (
     <div>
       <h1>{itemName}</h1>
