@@ -18,10 +18,25 @@ const Answers = ({ question_id }) => {
     setAnswers(filteredAnswers);
   };
 
+  const doUpdateHelpfulness = (answer_id) => {
+    const updatedAnswers = answers.map((a) => {
+      if (a.answer_id === answer_id) {
+        a.helpfulness = a.helpfulness + 1;
+      }
+      return a;
+    });
+    setAnswers(updatedAnswers);
+  };
+
   return (
     <div>
       {answers.map((a, i) => (
-        <Answer key={i} answer={a} doUpdateAnswers={doUpdateAnswers} />
+        <Answer
+          key={i}
+          answer={a}
+          doUpdateAnswers={doUpdateAnswers}
+          doUpdateHelpfulness={doUpdateHelpfulness}
+        />
       ))}
     </div>
   );
