@@ -50,9 +50,10 @@ const DefaultView = ({ state, updateState }) => {
             {/* render all thumbnails for current style */}
             {state.productStyleById.results !== undefined &&
               state.photosForStyle
-                .slice(idxs.startIdx, idxs.endIdx)
-                .map((photo, idx) => {
-                  return (
+                // .slice(idxs.startIdx, idxs.endIdx)
+                .map((photo, idx, collection) => {
+                  console.log(collection);
+                  return idx >= idxs.startIdx && idx < idxs.endIdx ? (
                     <img
                       src={photo.thumbnail_url}
                       key={idx}
@@ -60,7 +61,7 @@ const DefaultView = ({ state, updateState }) => {
                       class={idx}
                       onClick={updateCurrentPhoto}
                     />
-                  );
+                  ) : null;
                 })}
             <ThumbnailsButton
               state={state}
