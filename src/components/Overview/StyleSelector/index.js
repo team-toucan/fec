@@ -5,10 +5,15 @@ const StyleSelector = ({ state, updateState }) => {
 
   const updateCurrentStyle = (e) => {
     e.preventDefault();
-    console.log('test', e.target.className);
     updateState((prevValues) => {
-      return { ...prevValues, currentStyle: e.target.className };
+      return {
+        ...prevValues,
+        currentStyle: e.target.className,
+        photosForStyle:
+          prevValues.productStyleById.results[e.target.className].photos,
+      };
     });
+    console.log('awefawef', state.currentStyle);
   };
 
   return (
