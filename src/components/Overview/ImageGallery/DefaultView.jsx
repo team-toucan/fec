@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { DefaultViewDiv } from './imageGalleryStyles';
+import MainImgButton from '@components/Overview/ImageGallery/Buttons/MainImgButton.jsx';
 
 const DefaultView = ({ state, updateState }) => {
   const updateCurrentPhoto = (e) => {
@@ -28,7 +29,9 @@ const DefaultView = ({ state, updateState }) => {
                 state.currentPhoto
               ].url
             }
+            style={{ maxWidth: '300px' }}
           />
+          <MainImgButton state={state} updateState={updateState} />
         </div>
         // <DefaultViewDiv>
         //   <img
