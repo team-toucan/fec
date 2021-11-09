@@ -4,7 +4,13 @@ import { ImageGalleryDiv } from './imageGalleryStyles';
 import { DefaultViewDiv } from './imageGalleryStyles';
 
 const ImageGallery = ({ state, updateState }) => {
-  return <DefaultView state={state} updateState={updateState} />;
+  return (
+    <DefaultView
+      state={state}
+      updateState={updateState}
+      style={{ display: 'flex' }}
+    />
+  );
 };
 
 export default ImageGallery;
