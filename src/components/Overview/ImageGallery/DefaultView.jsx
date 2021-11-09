@@ -46,7 +46,14 @@ const DefaultView = ({ state, updateState }) => {
             backgroundPosition: 'center',
           }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              flex: '1',
+              alignItems: 'center',
+            }}
+          >
             {/* render all thumbnails for current style */}
             {state.productStyleById.results !== undefined &&
               state.photosForStyle
@@ -70,7 +77,14 @@ const DefaultView = ({ state, updateState }) => {
             />
           </div>
 
-          <div style={{ style: 'flex' }}>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              flex: 7,
+              alignItems: 'center',
+            }}
+          >
             <MainImgButton state={state} updateState={updateState} />
           </div>
         </div>
