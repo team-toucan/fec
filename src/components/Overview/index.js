@@ -13,9 +13,10 @@ const Overview = () => {
     productById: {},
     productStyleById: {},
     currentStyle: 0,
-    currentSize: '',
+    currentSize: 0,
     currentPhoto: 0,
     photosForStyle: [],
+    quantitySelected: 0,
   });
 
   /* Set current state for the overview component */
