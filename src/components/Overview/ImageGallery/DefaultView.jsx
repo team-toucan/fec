@@ -22,7 +22,7 @@ const DefaultView = ({ state, updateState }) => {
   const updateCurrentPhoto = (e) => {
     e.preventDefault();
     updateState((prevValues) => {
-      return { ...prevValues, currentPhoto: e.target.className };
+      return { ...prevValues, currentPhoto: parseInt(e.target.className) };
     });
   };
 
@@ -33,13 +33,17 @@ const DefaultView = ({ state, updateState }) => {
         <div
           style={{
             display: 'flex',
-            width: '500px',
+            width: '50vw',
+            height: '70vh',
             backgroundImage:
               'url(' +
               state.productStyleById.results[state.currentStyle].photos[
                 state.currentPhoto
               ].url +
               ')',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
           }}
         >
           <div style={{ display: 'flex', flexDirection: 'column' }}>
