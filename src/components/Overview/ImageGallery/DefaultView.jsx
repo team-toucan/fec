@@ -12,16 +12,35 @@ const DefaultView = ({ state, updateState }) => {
   return (
     <>
       {state.productStyleById.results !== undefined && (
-        <DefaultViewDiv>
+        <div
+          style={{
+            backgroundImage:
+              'url(' +
+              `state.productStyleById.results[state.currentStyle].photos[
+                state.currentPhoto
+              ].url` +
+              ')',
+          }}
+        >
           <img
             src={
               state.productStyleById.results[state.currentStyle].photos[
                 state.currentPhoto
               ].url
             }
-            style={{ maxWidth: '300px' }}
           />
-        </DefaultViewDiv>
+        </div>
+        // <DefaultViewDiv>
+        //   <img
+        //     src={
+        //       state.productStyleById.results[state.currentStyle].photos[
+        //         state.currentPhoto
+        //       ].url
+        //     }
+        //     style={{ maxWidth: '300px' }}
+        //   />
+        //   <button>test</button>
+        // </DefaultViewDiv>
       )}
       {state.productStyleById.results !== undefined &&
         state.productStyleById.results[state.currentStyle].photos.map(
@@ -30,7 +49,7 @@ const DefaultView = ({ state, updateState }) => {
               <img
                 src={photo.thumbnail_url}
                 key={idx}
-                style={{ maxWidth: '40px' }}
+                style={{ maxWidth: '40px', maxHeight: '40px' }}
                 class={idx}
                 onClick={updateCurrentPhoto}
               />
