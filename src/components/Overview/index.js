@@ -15,8 +15,10 @@ const Overview = () => {
     currentStyle: 0,
     currentSize: '',
     currentPhoto: 0,
+    photosForStyle: [],
   });
 
+  /* Set current state for the overview component */
   useEffect(async () => {
     const { data } = await getProductById(id);
     updateState((prevValues) => {
@@ -27,17 +29,13 @@ const Overview = () => {
   useEffect(async () => {
     const { data } = await getProductStyleById(id);
     updateState((prevValues) => {
-      return { ...prevValues, productStyleById: data };
+      return {
+        ...prevValues,
+        productStyleById: data,
+        photosForStyle: data.results[state.currentStyle].photos,
+      };
     });
   }, []);
-
-  /* TODO: update currentStyle based on user selection */
-  /* TODO: update name of style */
-  /* update price of style */
-  /* update sizes available for style */
-  /* update quantities available for each size */
-  /* update thumbnail photos */
-  /* update main photo */
 
   console.log('new state 🎃', state);
 
