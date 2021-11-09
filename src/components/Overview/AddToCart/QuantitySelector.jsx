@@ -33,7 +33,11 @@ const QuantitySelector = ({ state, updateState }) => {
             ),
           ].map((num, idx) => {
             if (idx + 1 <= 15) {
-              return <option key={idx}>{idx + 1}</option>;
+              return (
+                <option key={idx} value={idx + 1}>
+                  {idx + 1}
+                </option>
+              );
             }
           })}
       </select>
