@@ -52,7 +52,6 @@ const DefaultView = ({ state, updateState }) => {
               state.photosForStyle
                 // .slice(idxs.startIdx, idxs.endIdx)
                 .map((photo, idx, collection) => {
-                  console.log(collection);
                   return idx >= idxs.startIdx && idx < idxs.endIdx ? (
                     <img
                       src={photo.thumbnail_url}
