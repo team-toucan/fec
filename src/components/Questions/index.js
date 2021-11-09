@@ -12,14 +12,36 @@ import QuestionForm from '@components/QuestionForm';
 function Questions() {
   const { id } = useParams();
   const [questions, setQuestions] = useState([]);
+  const [filteredQuestions, setFilteredQuestions] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [isShowingModal, setIsShowingModal] = useState(false);
   const [isShowingMoreQuestions, setIsShowingMoreAnswers] = useState(false);
 
   useEffect(async () => {
     const { data } = await getQuestionsByProductId(id);
+    console.log('🚀 ~ file: index.js ~ line 26 ~ useEffect ~ data', data);
     setQuestions(data.results);
+    setFilteredQuestions(data.results);
   }, []);
+
+  useEffect(() => {
+    if (searchInput.length >= 3) {
+      const filteredQuestions = questions.filter((q) => {
+        const re = new RegExp(searchInput, 'gi');
+        const t = Object.values(q.answers).filter((a) =>
+          Object.values(a)
+            .join('')
+            .toLowerCase()
+            .includes(searchInput.toLowerCase())
+        );
+        console.log(t);
+        return q.question_body.match(re) || t.length > 0;
+      });
+      setFilteredQuestions(filteredQuestions);
+    } else {
+      setFilteredQuestions(questions);
+    }
+  }, [searchInput]);
 
   const searchItems = (searchValue) => {
     setSearchInput(searchValue);
@@ -43,6 +65,7 @@ function Questions() {
           type="text"
           placeholder="HAVE A QUESTION? SEARCH FOR THE ANSWERS..."
           className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+          onChange={(e) => searchItems(e.target.value)}
         />
         <span class="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 absolute bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-3 py-3">
           <svg
@@ -62,25 +85,22 @@ function Questions() {
         </span>
       </div>
 
-      {questions.map((q, i) => (
-        <div
-          key={i}
-          style={{
-            display: i < 2 || isShowingMoreQuestions ? 'block' : 'none',
-          }}
-        >
-          <Question
-            question={q}
-            doMarkQuestionAsHelpful={doMarkQuestionAsHelpful}
-          />
-          <Answers question_id={q.question_id} />
-        </div>
-      ))}
+      {filteredQuestions
+        .slice(0, isShowingMoreQuestions ? 8 : 2)
+        .map((q, i) => (
+          <div key={i}>
+            <Question
+              question={q}
+              doMarkQuestionAsHelpful={doMarkQuestionAsHelpful}
+            />
+            <Answers question={q} />
+          </div>
+        ))}
       <Modal isShowing={isShowingModal} setIsShowing={setIsShowingModal}>
         <QuestionForm />
       </Modal>
       <div className="my-4">
-        {questions.length > 2 && (
+        {filteredQuestions.length > 2 && (
           <button
             className="bg-transparent hover:bg-gray-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent "
             onClick={() => setIsShowingMoreAnswers(!isShowingMoreQuestions)}

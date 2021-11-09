@@ -42,8 +42,15 @@ const getProductReviewMetaData = (productId) =>
 
 */
 
-export const getQuestionsByProductId = (id, page, count) =>
-  baseUrl.get(`/qa/questions?product_id=${id}`);
+export const getQuestionsByProductId = (product_id, count, page) =>
+  baseUrl({
+    method: 'GET',
+    url: '/qa/questions',
+    params: {
+      product_id: Number(product_id),
+      count,
+    },
+  });
 
 export const getAnswersBuQuestionId = (question_id, page, count) =>
   baseUrl.get(`/qa/questions/${question_id}/answers`);
