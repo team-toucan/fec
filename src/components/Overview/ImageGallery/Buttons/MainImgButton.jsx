@@ -19,14 +19,36 @@ const MainImgButton = ({ state, updateState }) => {
   return (
     <>
       {/* Left Button - back */}
-      {state.productStyleById.results !== undefined &&
-        state.currentPhoto > 0 && <button onClick={previousPhoto}>back</button>}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignSelf: 'center',
+          alignItems: 'baseline',
+          flex: '1',
+        }}
+      >
+        {state.productStyleById.results !== undefined &&
+          state.currentPhoto > 0 && (
+            <button onClick={previousPhoto}>back</button>
+          )}
+      </div>
 
       {/* Right Button - next */}
-      {state.productStyleById.results !== undefined &&
-        state.currentPhoto < state.photosForStyle.length - 1 && (
-          <button onClick={nextPhoto}>next</button>
-        )}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignSelf: 'center',
+          alignItems: 'end',
+          flex: '1',
+        }}
+      >
+        {state.productStyleById.results !== undefined &&
+          state.currentPhoto < state.photosForStyle.length - 1 && (
+            <button onClick={nextPhoto}>next</button>
+          )}
+      </div>
     </>
   );
 };
