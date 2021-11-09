@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { DefaultViewDiv } from './imageGalleryStyles';
 
-const DefaultView = ({ state }) => {
-  if (state.productStyleById.results !== undefined) {
-    console.log('🛶', state.productStyleById.results[0].photos);
-  }
+const DefaultView = ({ state, updateState }) => {
+  const updateCurrentPhoto = (e) => {
+    e.preventDefault();
+    updateState((prevValues) => {
+      return { ...prevValues, currentPhoto: e.target.className };
+    });
+  };
 
   return (
     <>
@@ -28,6 +31,8 @@ const DefaultView = ({ state }) => {
                 src={photo.thumbnail_url}
                 key={idx}
                 style={{ maxWidth: '40px' }}
+                class={idx}
+                onClick={updateCurrentPhoto}
               />
             );
           }
