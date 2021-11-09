@@ -8,7 +8,7 @@ const AddToCart = ({ state }) => {
     <div>
       <h1>Add to Cart</h1>
       <SizeSelector state={state} />
-      <QuantitySelector state={state} />
+      {/* <QuantitySelector state={state} /> */}
       <AddToCartSub state={state} />
     </div>
   );
