@@ -41,10 +41,18 @@ const Overview = () => {
 
   return (
     <OverviewDiv>
-      <ImageGallery state={state} updateState={updateState} />
-      <ProductInfo state={state} updateState={updateState} />
-      <StyleSelector state={state} updateState={updateState} />
-      <AddToCart state={state} updateState={updateState} />
+      <div style={{ display: 'flex' }}>
+        <ImageGallery state={state} updateState={updateState} />
+      </div>
+      <div style={{ display: 'flex' }}>
+        <ProductInfo state={state} updateState={updateState} />
+      </div>
+      <div style={{ display: 'flex' }}>
+        <StyleSelector state={state} updateState={updateState} />
+      </div>
+      <div style={{ display: 'flex' }}>
+        <AddToCart state={state} updateState={updateState} />
+      </div>
     </OverviewDiv>
   );
 };
