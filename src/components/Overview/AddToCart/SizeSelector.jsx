@@ -11,7 +11,7 @@ const SizeSelector = ({ state, updateState }) => {
     updateState((prevValues) => {
       return {
         ...prevValues,
-        currentSize: e.target.value,
+        currentSize: e.target.value === 'Select Size' ? 0 : e.target.value,
       };
     });
   };
