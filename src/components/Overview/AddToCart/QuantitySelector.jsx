@@ -1,9 +1,19 @@
 import React from 'react';
 
-const QuantitySelector = ({ state }) => {
+const QuantitySelector = ({ state, updateState }) => {
+  const selectQuantity = (e) => {
+    e.preventDefault();
+    updateState((prevValues) => {
+      return {
+        ...prevValues,
+        quantitySelected: e.target.value,
+      };
+    });
+  };
+
   return (
     <div>
-      <select>
+      <select onChange={selectQuantity}>
         {/* No Size Chosen */}
         {state.productStyleById.results !== undefined &&
           state.currentSize === 0 && <option>-</option>}
