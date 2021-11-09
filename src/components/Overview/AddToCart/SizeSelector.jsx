@@ -16,12 +16,6 @@ const SizeSelector = ({ state, updateState }) => {
     });
   };
 
-  // useEffect(() => {
-  //   updateState((prevValues) => {
-  //     return { ...prevValues, productById: data };
-  //   });
-  // }, []);
-
   return (
     <div>
       <select value={state.currentSize} onChange={sizeSelected}>
