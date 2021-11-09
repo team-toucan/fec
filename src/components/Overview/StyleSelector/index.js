@@ -9,6 +9,9 @@ const StyleSelector = ({ state, updateState }) => {
       return {
         ...prevValues,
         currentStyle: e.target.className,
+        currentSize: 0,
+        currentPhoto: 0,
+        quantitySelected: 0,
         photosForStyle:
           prevValues.productStyleById.results[e.target.className].photos,
       };
