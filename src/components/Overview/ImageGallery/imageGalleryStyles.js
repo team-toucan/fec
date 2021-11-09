@@ -6,6 +6,7 @@ export const ImageGalleryDiv = styled.div`
 
 export const DefaultViewDiv = styled.div`
   flex: 4 1 auto;
+  background: ;
 `;
 
 // export const DefaultViewDiv = styled.div`
