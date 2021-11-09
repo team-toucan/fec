@@ -21,7 +21,6 @@ const StyleSelector = ({ state, updateState }) => {
 
   return (
     <div>
-      <h1>Style Selector</h1>
       {state.productStyleById.results !== undefined && (
         <div>
           <h1>
