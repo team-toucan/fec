@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // TODO: Create a function on one of the upper-level components
 // that houses the current style/style to change the size
@@ -15,10 +15,17 @@ const SizeSelector = ({ state, updateState }) => {
       };
     });
   };
+
+  // useEffect(() => {
+  //   updateState((prevValues) => {
+  //     return { ...prevValues, productById: data };
+  //   });
+  // }, []);
+
   return (
     <div>
-      <select onChange={sizeSelected}>
-        <option>Select Size</option>
+      <select value={state.currentSize} onChange={sizeSelected}>
+        <option value={0}>Select Size</option>
         {state.productStyleById.results !== undefined &&
           Object.keys(
             state.productStyleById.results[state.currentStyle].skus
