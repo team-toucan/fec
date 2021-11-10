@@ -1,9 +1,19 @@
 import React from 'react';
 
-const QuantitySelector = ({ state }) => {
+const QuantitySelector = ({ state, updateState }) => {
+  const selectQuantity = (e) => {
+    e.preventDefault();
+    updateState((prevValues) => {
+      return {
+        ...prevValues,
+        quantitySelected: e.target.value,
+      };
+    });
+  };
+
   return (
     <div>
-      <select>
+      <select onChange={selectQuantity}>
         {/* No Size Chosen */}
         {state.productStyleById.results !== undefined &&
           state.currentSize === 0 && <option>-</option>}
@@ -23,7 +33,11 @@ const QuantitySelector = ({ state }) => {
             ),
           ].map((num, idx) => {
             if (idx + 1 <= 15) {
-              return <option key={idx}>{idx + 1}</option>;
+              return (
+                <option key={idx} value={idx + 1}>
+                  {idx + 1}
+                </option>
+              );
             }
           })}
       </select>
