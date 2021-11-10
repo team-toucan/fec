@@ -87,6 +87,9 @@ const DefaultView = ({ state, updateState }) => {
           >
             <MainImgButton state={state} updateState={updateState} />
           </div>
+          <div style={{ display: 'flex' }}>
+            <button>expand</button>
+          </div>
         </div>
       )}
     </>
