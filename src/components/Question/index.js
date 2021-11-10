@@ -4,7 +4,7 @@ import AnswerForm from '@components/AnswerForm';
 import Modal from '@components/Modal';
 import { markQuestionAsHelpful } from '@api';
 
-const Question = ({ question, doMarkQuestionAsHelpful }) => {
+const Question = ({ question, doMarkQuestionAsHelpful, isHidden }) => {
   const [isShowing, setIsShowing] = useState(false);
   const doUpdateHelpfulness = async () => {
     try {
@@ -20,11 +20,16 @@ const Question = ({ question, doMarkQuestionAsHelpful }) => {
     }
   };
   return (
-    <div style={{ display: 'flex' }}>
-      <h1>Q: {question.question_body}</h1>
+    <div className="my-2" style={{ display: isHidden ? 'none' : 'flex' }}>
+      <h1 className="font-bold text-xl gary">
+        <span>Q:</span> {question.question_body}
+      </h1>
       <div style={{ marginLeft: 'auto' }}>
-        Helpful? <span onClick={doUpdateHelpfulness}>Yes</span> (
-        {question.question_helpfulness}) |{' '}
+        Helpful?{' '}
+        <span className="pointer underline" onClick={doUpdateHelpfulness}>
+          Yes
+        </span>{' '}
+        ({question.question_helpfulness}) |{' '}
         <span onClick={() => setIsShowing(true)}>Add Answer</span>
       </div>
       <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
