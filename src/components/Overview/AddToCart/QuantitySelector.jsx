@@ -29,7 +29,7 @@ const QuantitySelector = ({ state, updateState }) => {
             ...Array(
               state.productStyleById.results[state.currentStyle].skus[
                 state.currentSize
-              ].quantity
+              ]?.quantity
             ),
           ].map((num, idx) => {
             if (idx + 1 <= 15) {
