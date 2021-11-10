@@ -8,6 +8,7 @@ import Question from '@components/Question';
 import Answers from '@components/Answers';
 import Modal from '@components/Modal';
 import QuestionForm from '@components/QuestionForm';
+import Button from '@components/Button';
 
 function Questions() {
   const { id } = useParams();
@@ -101,22 +102,16 @@ function Questions() {
       </Modal>
       <div className="my-4">
         {filteredQuestions.length > 2 && (
-          <button
-            className="bg-transparent hover:bg-gray-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent "
-            onClick={() => setIsShowingMoreAnswers(!isShowingMoreQuestions)}
-          >
+          <Button>
             {isShowingMoreQuestions
               ? 'Show Less Questions'
               : ' More Answered Questions'}
-          </button>
+          </Button>
         )}
 
-        <button
-          className="bg-transparent hover:bg-gray-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent ml-5"
-          onClick={() => setIsShowingModal(true)}
-        >
+        <Button className="ml-3" onClick={() => setIsShowingModal(true)}>
           Add a Question +
-        </button>
+        </Button>
       </div>
     </div>
   );
