@@ -3,9 +3,10 @@ import { useParams } from "react-router-dom";
 import { getProductById, getProductStyleById } from "../../api";
 import Name from "./Name.jsx";
 import Features from "./Features.jsx";
+import ComparisonContent from "./ComparisonContent.jsx";
 import Modal from "@components/Modal";
 
-const Card = ({ relatedId }) => {
+const Card = ({ relatedId, currentID }) => {
   const [item, updateItem] = useState({ info: {} });
   const [features, updateFeat] = useState({ info: {} });
   const [imgURL, updateImg] = useState({ img: {} });
@@ -22,10 +23,7 @@ const Card = ({ relatedId }) => {
     };
     const prodThumb = async () => {
       const imgRes = await getProductStyleById(relatedId);
-      console.log(
-        "img after await",
-        imgRes.data.results[0].photos[0].thumbnail_url
-      );
+
       updateImg(imgRes.data.results[0].photos[0]);
     };
 
@@ -45,7 +43,12 @@ const Card = ({ relatedId }) => {
 
           <img src={imgURL.thumbnail_url} onClick={() => setIsShowing(true)} />
         </div>
-        <Modal isShowing={isShowing} setIsShowing={setIsShowing}></Modal>
+        <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
+          <p>
+            {" "}
+            <ComparisonContent relatedFeat={features} currentID={currentID} />
+          </p>
+        </Modal>
       </div>
     )
   );
