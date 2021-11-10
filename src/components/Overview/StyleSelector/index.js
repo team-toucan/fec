@@ -20,29 +20,31 @@ const StyleSelector = ({ state, updateState }) => {
   };
 
   return (
-    <div>
+    <>
       {state.productStyleById.results !== undefined && (
-        <div>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           <h1>
             <strong>STYLE > </strong>{' '}
             {state.productStyleById.results[state.currentStyle].name}
           </h1>
 
           {/* thumbnails of available styles to choose from */}
-          {state.productStyleById.results.map((style, idx) => {
-            return (
-              <img
-                src={style.photos[0].thumbnail_url}
-                key={idx}
-                style={{ maxWidth: '40px' }}
-                class={idx}
-                onClick={updateCurrentStyle}
-              />
-            );
-          })}
+          <div style={{ display: 'flex' }}>
+            {state.productStyleById.results.map((style, idx) => {
+              return (
+                <img
+                  src={style.photos[0].thumbnail_url}
+                  key={idx}
+                  style={{ maxWidth: '40px' }}
+                  class={idx}
+                  onClick={updateCurrentStyle}
+                />
+              );
+            })}
+          </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
