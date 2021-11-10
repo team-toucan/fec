@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { StyledModal } from './styles';
+
 const Modal = ({ isShowing, setIsShowing, children }) => {
   return (
-    <div className="modal" style={{ display: isShowing ? 'block' : 'none' }}>
+    <StyledModal style={{ display: isShowing ? 'block' : 'none' }}>
       <div className="modal-content">
         <span className="close" onClick={() => setIsShowing(false)}>
           &times;
@@ -10,7 +12,7 @@ const Modal = ({ isShowing, setIsShowing, children }) => {
         <p>Some text in the Modal..</p>
         {children}
       </div>
-    </div>
+    </StyledModal>
   );
 };
 

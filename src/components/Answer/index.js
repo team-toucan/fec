@@ -1,26 +1,55 @@
 import React from 'react';
+import moment from 'moment';
+import { reportAnswer, markAnswerAsHelpful } from '@api';
 
-import { reportAnswer } from '@api';
+const Answer = (props) => {
+  const {
+    answer,
+    doUpdateAnswers,
+    doUpdateHelpfulness,
+    isHidden,
+    questionAskerName,
+  } = props;
 
-const Answer = ({ answer, doUpdateAnswers }) => {
+  const doMarkAnswerAsHelpful = async () => {
+    try {
+      const response = await markAnswerAsHelpful(answer.answer_id);
+      doUpdateHelpfulness(answer.answer_id);
+    } catch (err) {
+      console.log(
+        '🚀 ~ file: index.js ~ line 12 ~ doMarkAnswerAsHelpful ~ err',
+        err
+      );
+    }
+  };
+
   const doReportAnswer = async () => {
     try {
       const response = await reportAnswer(answer.answer_id);
-      console.log(
-        '🚀 ~ file: index.js ~ line 10 ~ doReportAnswer ~ response',
-        response
-      );
       doUpdateAnswers(answer.answer_id);
     } catch (err) {
       console.log('🚀 ~ file: index.js ~ line 10 ~ doReportAnswer ~ err', err);
     }
   };
+
   return (
-    <div>
-      <h1>A: {answer.body}</h1>
-      <div>
-        by {answer.answerer_name} | Helpful? Yes({answer.helpfulness}) |{' '}
-        <span onClick={doReportAnswer}>Report</span>
+    <div className="my-2" style={{ display: isHidden ? 'none' : 'block' }}>
+      <h1>
+        <span className="font-bold text-xl gary">A:</span> {answer.body}
+      </h1>
+      <div className="my-2 text-xs ml-7">
+        by {answer.answerer_name}{' '}
+        <span className="font-bold">
+          {questionAskerName === answer.answerer_name ? '- SELLER' : ''}
+        </span>
+        , {moment(answer.date).format('MMM Do, YYYY')} | Helpful?{' '}
+        <span className="underline pointer" onClick={doMarkAnswerAsHelpful}>
+          Yes
+        </span>{' '}
+        ({answer.helpfulness}) |{' '}
+        <span className="underline pointer" onClick={doReportAnswer}>
+          Report
+        </span>
       </div>
       {answer.photos.map((p) => (
         <img scr={p} style={{ maxWidth: '40px' }} />
