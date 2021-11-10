@@ -3,32 +3,22 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getProductById } from "../../api";
 
-const ComparisonContent = ({ relatedFeat, currentID }) => {
+const ComparisonContent = ({ relatedItem, currentItem }) => {
   // API call to fetch current item features - refactor later to draw on overview?
   // gets passed in related item features
-  const [currentitem, updateCurrent] = useState({ info: {} });
-  const [currentfeatures, updateCurrFeat] = useState({ info: {} });
-  const compArray = [relatedFeat];
-
-  console.log("IDIDIDID", currentID);
-
-  useEffect(() => {
-    console.log("in comp MODAL");
-    const currentInfo = async () => {
-      const response = await getProductById(currentID);
-      const responseInfo = response.data;
-      updateCurrent(responseInfo);
-      updateCurrFeat(responseInfo.features);
-      compArray.push(responseInfo.features);
-    };
-    currentInfo();
-    compArray.push(currentfeatures);
-  }, []);
 
   return (
-    <div>
-      {console.log("ARRAYYYY", compArray)},<h1> feat here</h1>
-    </div>
+    console.log("IN COMP RETURN 🎁", currentItem, relatedItem),
+    (
+      <div>
+        <div>
+          <p>{relatedItem.category}</p>
+          <p>{relatedItem.default_price}</p>
+          <p>{currentItem.category}</p>
+          <p>{currentItem.default_price}</p>
+        </div>
+      </div>
+    )
   );
 };
 
