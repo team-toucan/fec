@@ -9,7 +9,6 @@ const Modal = ({ isShowing, setIsShowing, children }) => {
         <span className="close" onClick={() => setIsShowing(false)}>
           &times;
         </span>
-        <p>Some text in the Modal..</p>
         {children}
       </div>
     </StyledModal>

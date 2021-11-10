@@ -5,7 +5,7 @@ import Products from './components/Products';
 
 const App = () => {
   return (
-    <div class="container mx-auto">
+    <div className="container mx-auto">
       <Routes>
         <Route path="/" element={<Products />} />
         <Route path="/products/:id" element={<ProductShow />} />
