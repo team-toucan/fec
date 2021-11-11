@@ -13,7 +13,8 @@ const baseUrl = axios.create({
 */
 const getAllProducts = () => baseUrl.get('/products');
 
-const getProductById = (productId) => baseUrl.get(`/products/${productId}`);
+export const getProductById = (productId) =>
+  baseUrl.get(`/products/${productId}`);
 
 const getProductStyleById = (productId) =>
   baseUrl.get(`/products/${productId}/styles`);

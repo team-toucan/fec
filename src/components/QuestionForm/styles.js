@@ -11,3 +11,13 @@ export const StyledFormRow = styled.div`
   display: flex;
   margin-bottom: 1.5rem;
 `;
+
+export const StyledLabel = styled.label`
+  color: rgba(55, 65, 81);
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-bottom: 0.5rem;
+`;

@@ -20,7 +20,8 @@ function Questions() {
   const [isShowingMoreQuestions, setIsShowingMoreAnswers] = useState(false);
 
   useEffect(async () => {
-    const { data } = await getQuestionsByProductId(id);
+    const { data } = await getQuestionsByProductId(id, 100);
+    console.log('🚀 ~ file: index.js ~ line 24 ~ useEffect ~ data', data);
     setQuestions(data.results);
     setFilteredQuestions(data.results);
   }, []);
@@ -89,17 +90,15 @@ function Questions() {
         </span>
       </div>
 
-      {filteredQuestions
-        .slice(0, isShowingMoreQuestions ? 8 : 2)
-        .map((q, i) => (
-          <div key={i}>
-            <Question
-              question={q}
-              doMarkQuestionAsHelpful={doMarkQuestionAsHelpful}
-            />
-            <Answers question={q} />
-          </div>
-        ))}
+      {filteredQuestions.map((q, i) => (
+        <div key={i}>
+          <Question
+            question={q}
+            doMarkQuestionAsHelpful={doMarkQuestionAsHelpful}
+          />
+          <Answers question={q} />
+        </div>
+      ))}
       <Modal isShowing={isShowingModal} setIsShowing={setIsShowingModal}>
         <QuestionForm />
       </Modal>

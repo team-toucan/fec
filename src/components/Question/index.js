@@ -21,7 +21,7 @@ const Question = ({ question, doMarkQuestionAsHelpful, isHidden }) => {
   };
   return (
     <div className="my-2" style={{ display: isHidden ? 'none' : 'flex' }}>
-      <h1>
+      <h1 className="font-bold text-xl ">
         <span>Q:</span> {question.question_body}
       </h1>
       <div style={{ marginLeft: 'auto' }}>
