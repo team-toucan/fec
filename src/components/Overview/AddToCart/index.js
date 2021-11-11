@@ -5,10 +5,14 @@ import SizeSelector from '@components/Overview/AddToCart/SizeSelector.jsx';
 
 const AddToCart = ({ state, updateState }) => {
   return (
-    <div>
-      <SizeSelector state={state} updateState={updateState} />
-      <QuantitySelector state={state} updateState={updateState} />
-      <AddToCartSub state={state} updateState={updateState} />
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <SizeSelector state={state} updateState={updateState} />
+        <QuantitySelector state={state} updateState={updateState} />
+      </div>
+      <div style={{ display: 'flex' }}>
+        <AddToCartSub state={state} updateState={updateState} />
+      </div>
     </div>
   );
 };

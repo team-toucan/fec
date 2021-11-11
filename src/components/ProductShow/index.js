@@ -8,8 +8,8 @@ function ProductShow() {
   return (
     <div>
       <Overview />
-      <Questions />
-      <RelatedItems />
+      {/* <Questions />
+      <RelatedItems /> */}
     </div>
   );
 }

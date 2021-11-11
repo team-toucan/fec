@@ -4,6 +4,7 @@ import React from 'react';
 const MainImgButton = ({ state, updateState }) => {
   const previousPhoto = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     updateState((prevValues) => {
       return { ...prevValues, currentPhoto: prevValues.currentPhoto - 1 };
     });
@@ -11,6 +12,7 @@ const MainImgButton = ({ state, updateState }) => {
 
   const nextPhoto = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     updateState((prevValues) => {
       return { ...prevValues, currentPhoto: prevValues.currentPhoto + 1 };
     });

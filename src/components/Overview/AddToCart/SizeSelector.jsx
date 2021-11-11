@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
-// TODO: Create a function on one of the upper-level components
-// that houses the current style/style to change the size
-// based on the user selection below
+import { StyledSelectSize } from './addToCartStyles';
 
 const SizeSelector = ({ state, updateState }) => {
   const sizeSelected = (e) => {
@@ -11,15 +8,15 @@ const SizeSelector = ({ state, updateState }) => {
     updateState((prevValues) => {
       return {
         ...prevValues,
-        currentSize: e.target.value === 'Select Size' ? 0 : e.target.value,
+        currentSize: e.target.value === 'SELECT SIZE' ? 0 : e.target.value,
       };
     });
   };
 
   return (
-    <div>
-      <select value={state.currentSize} onChange={sizeSelected}>
-        <option value={0}>Select Size</option>
+    <div style={{ display: 'flex', flex: '7' }}>
+      <StyledSelectSize value={state.currentSize} onChange={sizeSelected}>
+        <option value={0}>SELECT SIZE</option>
         {state.productStyleById.results !== undefined &&
           Object.keys(
             state.productStyleById.results[state.currentStyle].skus
@@ -33,7 +30,7 @@ const SizeSelector = ({ state, updateState }) => {
               </option>
             );
           })}
-      </select>
+      </StyledSelectSize>
     </div>
   );
 };

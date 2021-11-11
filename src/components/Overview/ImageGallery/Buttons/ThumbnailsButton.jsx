@@ -9,6 +9,7 @@ const ThumbnailsButton = ({
 }) => {
   const previousThumbnail = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     updateIdxs((prevValues) => {
       return {
         startIdx: prevValues.startIdx - 1,
@@ -19,6 +20,7 @@ const ThumbnailsButton = ({
 
   const nextThumbnail = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     updateIdxs((prevValues) => {
       return {
         startIdx: prevValues.startIdx + 1,
@@ -29,17 +31,19 @@ const ThumbnailsButton = ({
 
   return (
     <>
-      {/* Left/Top Button - back */}
-      {state.productStyleById.results !== undefined && startIdx > 0 && (
-        <button onClick={previousThumbnail}>back</button>
-      )}
-
-      {/* Right/Bottom Button - next */}
-      {state.productStyleById.results !== undefined &&
-        state.photosForStyle.length > 7 &&
-        endIdx < state.photosForStyle.length && (
-          <button onClick={nextThumbnail}>next</button>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        {/* Left/Top Button - back */}
+        {state.productStyleById.results !== undefined && startIdx > 0 && (
+          <button onClick={previousThumbnail}>back</button>
         )}
+
+        {/* Right/Bottom Button - next */}
+        {state.productStyleById.results !== undefined &&
+          state.photosForStyle.length > 7 &&
+          endIdx < state.photosForStyle.length && (
+            <button onClick={nextThumbnail}>next</button>
+          )}
+      </div>
     </>
   );
 };

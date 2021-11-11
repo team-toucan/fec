@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyledSelect } from './addToCartStyles';
 
 const QuantitySelector = ({ state, updateState }) => {
   const selectQuantity = (e) => {
@@ -12,8 +13,8 @@ const QuantitySelector = ({ state, updateState }) => {
   };
 
   return (
-    <div>
-      <select onChange={selectQuantity}>
+    <div style={{ display: 'flex', flex: '3' }}>
+      <StyledSelect onChange={selectQuantity}>
         {/* No Size Chosen */}
         {state.productStyleById.results !== undefined &&
           state.currentSize === 0 && <option>-</option>}
@@ -40,7 +41,7 @@ const QuantitySelector = ({ state, updateState }) => {
               );
             }
           })}
-      </select>
+      </StyledSelect>
     </div>
   );
 };

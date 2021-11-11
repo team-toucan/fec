@@ -37,3 +37,11 @@
 .gary {
   color: #525252;
 }
+
+* {
+  border: 1px solid red;
+}
+
+img {
+  border: 1px solid black;
+}

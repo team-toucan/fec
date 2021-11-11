@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { DefaultViewDiv } from './imageGalleryStyles';
 import MainImgButton from '@components/Overview/ImageGallery/Buttons/MainImgButton.jsx';
 import ThumbnailsButton from '@components/Overview/ImageGallery/Buttons/ThumbnailsButton.jsx';
+import Modal from '@components/Overview/ImageGallery/Modal';
 
 const DefaultView = ({ state, updateState }) => {
+  const [isShowing, setIsShowing] = useState(false);
   const [startIdx, updateThumbnailsStart] = useState(0);
   const [endIdx, updateThumbnailsEnd] = useState(0);
   const [idxs, updateIdxs] = useState({
@@ -21,6 +23,7 @@ const DefaultView = ({ state, updateState }) => {
 
   const updateCurrentPhoto = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     updateState((prevValues) => {
       return { ...prevValues, currentPhoto: parseInt(e.target.className) };
     });
@@ -33,8 +36,6 @@ const DefaultView = ({ state, updateState }) => {
         <div
           style={{
             display: 'flex',
-            width: '50vw',
-            height: '70vh',
             backgroundImage:
               'url(' +
               state.productStyleById.results[state.currentStyle].photos[
@@ -44,8 +45,37 @@ const DefaultView = ({ state, updateState }) => {
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
+            flex: '7',
+            minHeight: '80vh',
+            minWidth: '60vh',
+            cursor: 'zoom-in',
+          }}
+          onClick={(e) => {
+            e.preventDefault();
+            setIsShowing(true);
           }}
         >
+          <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
+            <div style={{ display: 'flex' }}>
+              {state.productStyleById.results !== undefined && (
+                <img
+                  src={
+                    state.productStyleById.results[state.currentStyle].photos[
+                      state.currentPhoto
+                    ].url
+                  }
+                  style={{
+                    cursor: 'pointer',
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setIsShowing(false);
+                  }}
+                />
+              )}
+            </div>
+          </Modal>
           <div
             style={{
               display: 'flex',
@@ -55,40 +85,90 @@ const DefaultView = ({ state, updateState }) => {
             }}
           >
             {/* render all thumbnails for current style */}
-            {state.productStyleById.results !== undefined &&
-              state.photosForStyle
-                // .slice(idxs.startIdx, idxs.endIdx)
-                .map((photo, idx, collection) => {
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                flex: '4',
+                alignItems: 'center',
+                justifyContent: 'space-around',
+              }}
+            >
+              {state.productStyleById.results !== undefined &&
+                state.photosForStyle.map((photo, idx, collection) => {
                   return idx >= idxs.startIdx && idx < idxs.endIdx ? (
-                    <img
-                      src={photo.thumbnail_url}
-                      key={idx}
-                      style={{ maxWidth: '40px', maxHeight: '40px' }}
-                      class={idx}
-                      onClick={updateCurrentPhoto}
-                    />
+                    idx === state.currentPhoto ? (
+                      <div
+                        style={{
+                          display: 'flex',
+                          borderBottom: '5px solid black',
+                          paddingBottom: '2px',
+                        }}
+                      >
+                        <img
+                          src={photo.thumbnail_url}
+                          key={idx}
+                          style={{
+                            width: '8vh',
+                            height: '8vh',
+                            cursor: 'pointer',
+                            objectFit: 'cover',
+                          }}
+                          class={idx}
+                          onClick={updateCurrentPhoto}
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        style={{
+                          display: 'flex',
+                          borderBottom: '5px solid transparent',
+                          paddingBottom: '2px',
+                        }}
+                      >
+                        <img
+                          src={photo.thumbnail_url}
+                          key={idx}
+                          style={{
+                            width: '8vh',
+                            height: '8vh',
+                            cursor: 'pointer',
+                            objectFit: 'cover',
+                          }}
+                          class={idx}
+                          onClick={updateCurrentPhoto}
+                        />
+                      </div>
+                    )
                   ) : null;
                 })}
-            <ThumbnailsButton
-              state={state}
-              updateState={updateState}
-              idxs={idxs}
-              updateIdxs={updateIdxs}
-            />
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                flex: '1',
+              }}
+            >
+              <ThumbnailsButton
+                state={state}
+                updateState={updateState}
+                idxs={idxs}
+                updateIdxs={updateIdxs}
+              />
+            </div>
           </div>
-
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              flex: 7,
-              alignItems: 'center',
-            }}
-          >
-            <MainImgButton state={state} updateState={updateState} />
-          </div>
-          <div style={{ display: 'flex' }}>
-            <button>expand</button>
+          <div style={{ display: 'flex', flexDirection: 'column', flex: '6' }}>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                flex: '9',
+                alignItems: 'center',
+              }}
+            >
+              <MainImgButton state={state} updateState={updateState} />
+            </div>
           </div>
         </div>
       )}
