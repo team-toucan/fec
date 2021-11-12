@@ -41,10 +41,14 @@ const Card = ({ relatedId, currentItemID }) => {
   return (
     <div style={{ display: "flex" }}>
       <div>
-        <img src={imgURL.thumbnail_url} onClick={() => setIsShowing(true)} />
-        <p>{relateditem.category}</p>
-        <h3>{relateditem.name}</h3>
-        <p>{relateditem.default_price}</p>
+        <img
+          class="cardImg"
+          src={imgURL.thumbnail_url}
+          onClick={() => setIsShowing(true)}
+        />
+        <p class="smolFont">{relateditem.category}</p>
+        <h3 class="nameFont">{relateditem.name}</h3>
+        <p class="smolFont">{relateditem.default_price}</p>
       </div>
       <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
         <p>

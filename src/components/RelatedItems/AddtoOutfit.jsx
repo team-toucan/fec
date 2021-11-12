@@ -33,21 +33,15 @@ const AddtoOutfit = ({ currentItemID }) => {
   });
 
   return (
-    console.log("ITEMS", items),
-    (
-      <div style={{ display: "flex" }}>
-        <div>
-          <span className="outfitTitle">YOUR OUTFIT</span>
-          <FontAwesomeIcon
-            icon={faPlus}
-            className="addtoOutfit"
-            onClick={addClick}
-          />
+    <div class="single-item-container">
+      <FontAwesomeIcon
+        icon={faPlus}
+        className="addtoOutfit"
+        onClick={addClick}
+      />
 
-          <h3 className="outfitheader">Add to Outfit</h3>
-        </div>
-      </div>
-    )
+      <h3 className="outfitheader">Add to Outfit</h3>
+    </div>
   );
 };
 
