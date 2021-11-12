@@ -55,6 +55,7 @@ const Answer = (props) => {
       <div className="flex">
         {answer.photos.map((p, i) => (
           <img
+            key={i}
             src={p.url}
             alt="..."
             className={`object-cover h-24 w-24 ${i > 0 ? 'ml-6' : ''}`}

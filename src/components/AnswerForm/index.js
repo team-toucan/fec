@@ -46,18 +46,16 @@ const AnswerFrom = ({ question, setIsShowing }) => {
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <StyledFormRow>
           <div className="w-full">
-            <StyledLabel htmlFor="body">Your Answer </StyledLabel>
+            <StyledLabel htmlFor="answerBody">Your Answer </StyledLabel>
             <textarea
-              id="body"
               {...register('body', { required: true, maxLength: 1000 })}
               className="w-full h-32 bg-gray-200 px-3 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:outline-none focus:bg-white mt-1"
             />
             <p className="text-xs italic mb-5 text-red-500">
               {errors.body?.type === 'required' && 'Answer is required'}
             </p>
-            <StyledLabel htmlFor="username">Nickname</StyledLabel>
+            <StyledLabel htmlFor="answerUsername">Nickname</StyledLabel>
             <input
-              id="username"
               {...register('name', { required: true, maxLength: 60 })}
               className="mt-1 block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4  leading-tight focus:outline-none focus:bg-white"
               type="text"
@@ -70,9 +68,8 @@ const AnswerFrom = ({ question, setIsShowing }) => {
                 'For privacy reasons, do not use your full name or email address'
               )}
             </p>
-            <StyledLabel htmlFor="email">Email</StyledLabel>
+            <StyledLabel htmlFor="answerEmail">Email</StyledLabel>
             <input
-              id="email"
               type="email"
               {...register('email', { required: true, maxLength: 60 })}
               className="mt-1 block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4  leading-tight focus:outline-none focus:bg-white"
