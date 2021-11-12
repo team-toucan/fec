@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ProductCategory = ({ state }) => {
-  console.log('category', state.productById.category);
   return (
     <div>
       <h1>

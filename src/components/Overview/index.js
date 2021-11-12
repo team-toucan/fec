@@ -7,7 +7,13 @@ import StyleSelector from '@components/Overview/StyleSelector';
 import AddToCart from '@components/Overview/AddToCart';
 import Share from '@components/Overview/ProductInfo/Share.jsx';
 import { OverviewDiv } from './overviewStyles';
-import { getAllProducts, getProductById, getProductStyleById } from '../../api';
+import {
+  getAllProducts,
+  getProductById,
+  getProductStyleById,
+  addProductToCart,
+  getUserCart,
+} from '../../api';
 
 const Overview = () => {
   const { id } = useParams();
@@ -19,6 +25,7 @@ const Overview = () => {
     currentPhoto: 0,
     photosForStyle: [],
     quantitySelected: 0,
+    userCart: [],
   });
 
   /* Set current state for the overview component */
@@ -36,6 +43,16 @@ const Overview = () => {
         ...prevValues,
         productStyleById: data,
         photosForStyle: data.results[state.currentStyle].photos,
+      };
+    });
+  }, []);
+
+  useEffect(async () => {
+    const { data } = await getUserCart();
+    updateState((prevValues) => {
+      return {
+        ...prevValues,
+        userCart: data,
       };
     });
   }, []);
