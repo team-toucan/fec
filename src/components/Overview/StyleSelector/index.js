@@ -55,7 +55,7 @@ const StyleSelector = ({ state, updateState }) => {
                     alignItems: 'center',
                   }}
                 >
-                  {/* <div
+                  <div
                     style={{
                       display: 'flex',
                       flexDirection: 'column',
@@ -73,8 +73,8 @@ const StyleSelector = ({ state, updateState }) => {
                     }}
                     class={idx}
                     onClick={updateCurrentStyle}
-                  > */}
-                  <img
+                  >
+                    {/* <img
                     src={style.photos[0].thumbnail_url}
                     key={idx}
                     style={{
@@ -92,28 +92,28 @@ const StyleSelector = ({ state, updateState }) => {
                     }}
                     class={idx}
                     onClick={updateCurrentStyle}
-                  />
-                  {idx === state.currentStyle && (
-                    <div
-                      style={{
-                        backgroundImage:
-                          'url(' +
-                          'https://cdns.iconmonstr.com/wp-content/assets/preview/2018/240/iconmonstr-check-mark-circle-thin.png' +
-                          ')',
-                        backgroundSize: 'cover',
-                        borderRadius: '50%',
-                        height: '20px',
-                        width: '20px',
-                        top: '-7%',
-                        left: '8%',
-                        alignSelf: 'flex-end',
-                        position: 'relative',
-                      }}
-                      class={idx}
-                      onClick={updateCurrentStyle}
-                    ></div>
-                  )}
-                  {/* </div> */}
+                  /> */}
+                    {idx === state.currentStyle && (
+                      <div
+                        style={{
+                          backgroundImage:
+                            'url(' +
+                            'https://cdns.iconmonstr.com/wp-content/assets/preview/2018/240/iconmonstr-check-mark-circle-thin.png' +
+                            ')',
+                          backgroundSize: 'cover',
+                          borderRadius: '50%',
+                          height: '20px',
+                          width: '20px',
+                          top: '-7%',
+                          left: '8%',
+                          alignSelf: 'flex-end',
+                          position: 'relative',
+                        }}
+                        class={idx}
+                        onClick={updateCurrentStyle}
+                      ></div>
+                    )}
+                  </div>
                 </div>
               );
             })}

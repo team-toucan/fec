@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { DefaultViewDiv } from './imageGalleryStyles';
 import MainImgButton from '@components/Overview/ImageGallery/Buttons/MainImgButton.jsx';
 import ThumbnailsButton from '@components/Overview/ImageGallery/Buttons/ThumbnailsButton.jsx';
-import Modal from '@components/Overview/ImageGallery/Modal';
+import ExpandedView from '@components/Overview/ImageGallery/ExpandedView.jsx';
 
 const DefaultView = ({ state, updateState }) => {
   const [isShowing, setIsShowing] = useState(false);
@@ -55,27 +55,12 @@ const DefaultView = ({ state, updateState }) => {
             setIsShowing(true);
           }}
         >
-          <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
-            <div style={{ display: 'flex' }}>
-              {state.productStyleById.results !== undefined && (
-                <img
-                  src={
-                    state.productStyleById.results[state.currentStyle].photos[
-                      state.currentPhoto
-                    ].url
-                  }
-                  style={{
-                    cursor: 'pointer',
-                  }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    setIsShowing(false);
-                  }}
-                />
-              )}
-            </div>
-          </Modal>
+          <ExpandedView
+            state={state}
+            updateState={updateState}
+            isShowing={isShowing}
+            setIsShowing={setIsShowing}
+          />
           <div
             style={{
               display: 'flex',

@@ -1,31 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from '@components/Overview/ImageGallery/Modal';
+import styled from 'styled-components';
 
-const ExpandedView = ({ state, updateState }) => {
-  const [isShowing, setIsShowing] = useState(false);
-  const expandImage = (e) => {
+const ExpandedView = ({ state, updateState, isShowing, setIsShowing }) => {
+  const [backgroundPosition, setBackgroundPosition] = useState('0% 0%');
+
+  const handleMouseMove = (e) => {
     e.preventDefault();
-    console.log('image target test', e.target);
+    e.stopPropagation();
+    const { left, top, width, height } = e.target.getBoundingClientRect();
+    const x = ((e.pageX - left) / width) * 100;
+    const y = ((e.pageY - top) / height) * 100;
+    setBackgroundPosition(`${x}% ${y}%`);
   };
 
   return (
     <>
       <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
-        <div style={{ display: 'flex' }}>
-          {state.productStyleById.results !== undefined && (
+        {state.productStyleById.results !== undefined && (
+          <figure
+            onMouseMove={handleMouseMove}
+            style={{
+              backgroundImage: `url(${
+                state.productStyleById.results[state.currentStyle].photos[
+                  state.currentPhoto
+                ].url
+              })`,
+              backgroundPosition,
+            }}
+          >
             <img
               src={
                 state.productStyleById.results[state.currentStyle].photos[
                   state.currentPhoto
                 ].url
               }
-              style={{
-                cursor: 'pointer',
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setIsShowing(false);
               }}
-              onClick={expandImage}
+              alt="teatw"
             />
-          )}
-        </div>
+          </figure>
+        )}
       </Modal>
     </>
   );

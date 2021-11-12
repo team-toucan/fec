@@ -12,7 +12,7 @@ const ImageGallery = ({ state, updateState }) => {
         updateState={updateState}
         style={{ display: 'flex', flex: '7' }}
       />
-      <ExpandedView state={state} updateState={updateState} />
+      {/* <ExpandedView state={state} updateState={updateState} /> */}
     </>
   );
 };

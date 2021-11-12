@@ -32,7 +32,12 @@ const MainImgButton = ({ state, updateState }) => {
       >
         {state.productStyleById.results !== undefined &&
           state.currentPhoto > 0 && (
-            <button onClick={previousPhoto}>back</button>
+            <button onClick={previousPhoto}>
+              <img
+                src="https://img.icons8.com/ios-filled/50/000000/long-arrow-left.png"
+                style={{ border: '1px solid white' }}
+              />
+            </button>
           )}
       </div>
 
@@ -48,7 +53,12 @@ const MainImgButton = ({ state, updateState }) => {
       >
         {state.productStyleById.results !== undefined &&
           state.currentPhoto < state.photosForStyle.length - 1 && (
-            <button onClick={nextPhoto}>next</button>
+            <button onClick={nextPhoto}>
+              <img
+                src="https://img.icons8.com/ios-filled/50/000000/long-arrow-right.png"
+                style={{ border: '1px solid white' }}
+              />
+            </button>
           )}
       </div>
     </>
