@@ -38,8 +38,6 @@ const Overview = () => {
     });
   }, []);
 
-  console.log('new state 🎃', state);
-
   return (
     <OverviewDiv>
       <div style={{ display: 'flex' }}>

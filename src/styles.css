@@ -34,6 +34,53 @@
   cursor: pointer;
 }
 
+* {
+  border: 1px solid violet;
+}
+
 .gary {
   color: #525252;
+}
+
+.slide-container {
+  display: flex;
+  align-items: center;
+  max-width: 35rem;
+  overflow-y: auto;
+
+  margin: auto;
+}
+
+.single-item-container {
+  text-align: center;
+  cursor: pointer;
+  align-items: center;
+  min-width: 10rem;
+}
+
+.items-container {
+  display: flex;
+  overflow-y: hidden;
+  justify-content: center;
+  align-items: center;
+  max-width: 35rem;
+  overflow-y: auto;
+  margin: auto;
+}
+.items-container::-webkit-scrollbar {
+  display: none;
+}
+.slide-container::-webkit-scrollbar {
+  display: none;
+}
+#container {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ccc;
+  overflow-x: scroll;
+}
+
+#content {
+  width: 250px;
+  background-color: #ccc;
 }

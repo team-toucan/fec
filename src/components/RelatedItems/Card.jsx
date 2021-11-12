@@ -7,7 +7,6 @@ import ComparisonContent from "./ComparisonContent.jsx";
 import Modal from "@components/Modal";
 
 const Card = ({ relatedId, currentItemID }) => {
-  console.log("✅IN CARDddd", relatedId, currentItemID);
   const [showingitem, updateCurItem] = useState({ info: {} });
   const [relateditem, updateRelItem] = useState({ info: {} });
   const [imgURL, updateImg] = useState({ img: {} });
@@ -25,7 +24,6 @@ const Card = ({ relatedId, currentItemID }) => {
 
   useEffect(() => {
     const relInfo = async () => {
-      console.log("RELATED ID", relatedId, "curid", currentItemID);
       const relatedResp = await getProductById(relatedId);
       const relResponseInfo = relatedResp.data;
       updateRelItem(relResponseInfo);
@@ -37,30 +35,27 @@ const Card = ({ relatedId, currentItemID }) => {
     relInfo();
     prodThumb();
   }, []);
+  const button = document.getElementById("slide");
 
   //TODO: refactor item trains below into components
   return (
-    console.log("IN CARD RETURN", relateditem, showingitem),
-    (
+    <div style={{ display: "flex" }}>
       <div>
-        <div>
-          <p>{relateditem.category}</p>
-          <h3>{relateditem.name}</h3>
-          <p>{relateditem.default_price}</p>
-
-          <img src={imgURL.thumbnail_url} onClick={() => setIsShowing(true)} />
-        </div>
-        <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
-          <p>
-            {" "}
-            <ComparisonContent
-              relatedItem={relateditem}
-              currentItem={showingitem}
-            />
-          </p>
-        </Modal>
+        <img src={imgURL.thumbnail_url} onClick={() => setIsShowing(true)} />
+        <p>{relateditem.category}</p>
+        <h3>{relateditem.name}</h3>
+        <p>{relateditem.default_price}</p>
       </div>
-    )
+      <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
+        <p>
+          {" "}
+          <ComparisonContent
+            relatedItem={relateditem}
+            currentItem={showingitem}
+          />
+        </p>
+      </Modal>
+    </div>
   );
 };
 

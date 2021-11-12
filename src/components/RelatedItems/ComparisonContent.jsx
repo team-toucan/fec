@@ -6,19 +6,49 @@ import { getProductById } from "../../api";
 const ComparisonContent = ({ relatedItem, currentItem }) => {
   // API call to fetch current item features - refactor later to draw on overview?
   // gets passed in related item features
+  var newArr = [];
+  if (currentItem.features != undefined) {
+    for (var i = 0; i < currentItem.features.length; i++) {
+      newArr.push(currentItem.features[i].value);
+    }
+  }
+
+  if (relatedItem.features != undefined) {
+    for (var i = 0; i < relatedItem.features.length; i++) {
+      newArr.push(relatedItem.features[i].value);
+    }
+  }
+
+  let uniqueFeat = [...new Set(newArr)];
 
   return (
-    console.log("IN COMP RETURN 🎁", currentItem, relatedItem),
-    (
-      <div>
-        <div>
-          <p>{relatedItem.category}</p>
-          <p>{relatedItem.default_price}</p>
-          <p>{currentItem.category}</p>
-          <p>{currentItem.default_price}</p>
+    <div>
+      <div className="modal-body">
+        <div className="modal-header">
+          <h4 className="modal-title">COMPARING</h4>
         </div>
+        <table>
+          <thead className="tableHead">
+            <tr>
+              <td>{currentItem.name}</td>
+              <td>feature</td>
+              <td>{relatedItem.name}</td>
+            </tr>
+          </thead>
+          <tbody>
+            {uniqueFeat.map((trait, index) => {
+              return (
+                <tr key={index}>
+                  <td></td>
+                  <td>{trait}</td>
+                  <td></td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
-    )
+    </div>
   );
 };
 
