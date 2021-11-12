@@ -37,3 +37,20 @@
 .gary {
   color: #525252;
 }
+
+/* below is for the expanded modal view and zoom in feature */
+figure {
+  width: 80%;
+  height: 80%;
+  background-repeat: no-repeat;
+}
+
+figure:hover img {
+  opacity: 0;
+}
+
+img {
+  border: 1px solid black;
+  width: 100%;
+  height: 100%;
+}
