@@ -6,51 +6,60 @@ import Features from "./Features.jsx";
 import ComparisonContent from "./ComparisonContent.jsx";
 import Modal from "@components/Modal";
 
-const Card = ({ relatedId, currentID }) => {
-  const [item, updateItem] = useState({ info: {} });
-  const [features, updateFeat] = useState({ info: {} });
+const Card = ({ relatedId, currentItemID }) => {
+  const [showingitem, updateCurItem] = useState({ info: {} });
+  const [relateditem, updateRelItem] = useState({ info: {} });
   const [imgURL, updateImg] = useState({ img: {} });
   const [isShowing, setIsShowing] = useState(false);
 
   useEffect(() => {
-    console.log("in ue");
-    const prodInfo = async () => {
-      const response = await getProductById(relatedId);
-      console.log("after await", response.data);
-      const responseInfo = response.data;
-      updateItem(responseInfo);
-      updateFeat(responseInfo.features);
+    const currentInfo = async () => {
+      const currentResp = await getProductById(currentItemID);
+      const curResponseInfo = currentResp.data;
+      updateCurItem(curResponseInfo);
+    };
+
+    currentInfo();
+  }, []);
+
+  useEffect(() => {
+    const relInfo = async () => {
+      const relatedResp = await getProductById(relatedId);
+      const relResponseInfo = relatedResp.data;
+      updateRelItem(relResponseInfo);
     };
     const prodThumb = async () => {
       const imgRes = await getProductStyleById(relatedId);
-
       updateImg(imgRes.data.results[0].photos[0]);
     };
-
-    prodInfo();
+    relInfo();
     prodThumb();
   }, []);
+  const button = document.getElementById("slide");
 
   //TODO: refactor item trains below into components
   return (
-    console.log("feat in CARD RETURN", features),
-    (
+    <div style={{ display: "flex" }}>
       <div>
-        <div>
-          <p>{item.category}</p>
-          <h3>{item.name}</h3>
-          <p>{item.default_price}</p>
-
-          <img src={imgURL.thumbnail_url} onClick={() => setIsShowing(true)} />
-        </div>
-        <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
-          <p>
-            {" "}
-            <ComparisonContent relatedFeat={features} currentID={currentID} />
-          </p>
-        </Modal>
+        <img
+          class="cardImg"
+          src={imgURL.thumbnail_url}
+          onClick={() => setIsShowing(true)}
+        />
+        <p class="smolFont">{relateditem.category}</p>
+        <h3 class="nameFont">{relateditem.name}</h3>
+        <p class="smolFont">{relateditem.default_price}</p>
       </div>
-    )
+      <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
+        <p>
+          {" "}
+          <ComparisonContent
+            relatedItem={relateditem}
+            currentItem={showingitem}
+          />
+        </p>
+      </Modal>
+    </div>
   );
 };
 

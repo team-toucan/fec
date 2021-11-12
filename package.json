@@ -14,6 +14,11 @@
     "test": "jest --coverage"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
     "axios": "^0.24.0",
     "babel-jest": "^27.3.1",
     "dotenv": "^10.0.0",
@@ -25,6 +30,7 @@
     "react-hook-form": "^7.19.3",
     "react-hot-loader": "^4.13.0",
     "react-router-dom": "^6.0.0",
+    "store": "^2.0.12",
     "styled-components": "^5.3.3",
     "tailwindcss": "^2.2.17"
   },

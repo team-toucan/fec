@@ -3,31 +3,51 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getProductById } from "../../api";
 
-const ComparisonContent = ({ relatedFeat, currentID }) => {
+const ComparisonContent = ({ relatedItem, currentItem }) => {
   // API call to fetch current item features - refactor later to draw on overview?
   // gets passed in related item features
-  const [currentitem, updateCurrent] = useState({ info: {} });
-  const [currentfeatures, updateCurrFeat] = useState({ info: {} });
-  const compArray = [relatedFeat];
+  var newArr = [];
+  if (currentItem.features != undefined) {
+    for (var i = 0; i < currentItem.features.length; i++) {
+      newArr.push(currentItem.features[i].value);
+    }
+  }
 
-  console.log("IDIDIDID", currentID);
+  if (relatedItem.features != undefined) {
+    for (var i = 0; i < relatedItem.features.length; i++) {
+      newArr.push(relatedItem.features[i].value);
+    }
+  }
 
-  useEffect(() => {
-    console.log("in comp MODAL");
-    const currentInfo = async () => {
-      const response = await getProductById(currentID);
-      const responseInfo = response.data;
-      updateCurrent(responseInfo);
-      updateCurrFeat(responseInfo.features);
-      compArray.push(responseInfo.features);
-    };
-    currentInfo();
-    compArray.push(currentfeatures);
-  }, []);
+  let uniqueFeat = [...new Set(newArr)];
 
   return (
     <div>
-      {console.log("ARRAYYYY", compArray)},<h1> feat here</h1>
+      <div className="modal-body">
+        <div className="modal-header">
+          <h4 className="modal-title">COMPARING</h4>
+        </div>
+        <table>
+          <thead className="tableHead">
+            <tr>
+              <td>{currentItem.name}</td>
+              <td>feature</td>
+              <td>{relatedItem.name}</td>
+            </tr>
+          </thead>
+          <tbody>
+            {uniqueFeat.map((trait, index) => {
+              return (
+                <tr key={index}>
+                  <td></td>
+                  <td>{trait}</td>
+                  <td></td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

@@ -33,10 +33,88 @@
 .pointer {
   cursor: pointer;
 }
+/*
+* {
+  border: 1px solid violet;
+} */
 
 .gary {
   color: #525252;
 }
+
+.slide-container {
+  display: flex;
+  align-items: center;
+  max-width: fit-content;
+  margin: auto;
+}
+
+.single-item-container {
+  text-align: center;
+  cursor: pointer;
+  align-items: center;
+  min-width: 10rem;
+}
+
+.items-container {
+  display: flex;
+  overflow-y: hidden;
+
+  align-items: center;
+  max-width: 40rem;
+  overflow-y: auto;
+  margin: auto;
+  padding-bottom: 80px;
+}
+
+.outfit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 30rem;
+  margin: auto;
+}
+
+.outfit-container::-webkit-scrollbar {
+  display: none;
+}
+
+.items-container::-webkit-scrollbar {
+  display: none;
+}
+.slide-container::-webkit-scrollbar {
+  display: none;
+}
+#container {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ccc;
+  overflow-x: scroll;
+}
+
+#content {
+  width: 250px;
+  background-color: #ccc;
+}
+
+.cardImg {
+  width: 180px;
+  height: 200px;
+}
+
+.smolFont {
+  color: rgb(97, 96, 96);
+  float: right;
+  font-size: 10px;
+  width: 180px;
+}
+
+.nameFont {
+  color: rgb(97, 96, 96);
+  float: right;
+  font-size: 12px;
+  width: 180px;
+  font-weight: bold;
 
 /* below is for the expanded modal view and zoom in feature */
 figure {

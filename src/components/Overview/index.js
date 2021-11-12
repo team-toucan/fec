@@ -47,6 +47,7 @@ const Overview = () => {
     });
   }, []);
 
+
   useEffect(async () => {
     const { data } = await getUserCart();
     updateState((prevValues) => {
@@ -57,7 +58,6 @@ const Overview = () => {
     });
   }, []);
 
-  console.log('new state 🎃', state);
 
   return (
     <OverviewDiv>
