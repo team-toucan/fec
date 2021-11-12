@@ -17,37 +17,28 @@ function Questions() {
   const [filteredQuestions, setFilteredQuestions] = useState([]);
   const [searchInput, setSearchInput] = useState('');
   const [isShowingModal, setIsShowingModal] = useState(false);
-  const [isShowingMoreQuestions, setIsShowingMoreAnswers] = useState(false);
+  const [count, setCount] = useState(4);
 
   useEffect(async () => {
-    const { data } = await getQuestionsByProductId(id, 100);
-    console.log('🚀 ~ file: index.js ~ line 24 ~ useEffect ~ data', data);
-    setQuestions(data.results);
-    setFilteredQuestions(data.results);
-  }, []);
+    async function fetchData() {
+      const { data } = await getQuestionsByProductId(id, count);
+      setQuestions(data.results);
+      setFilteredQuestions(data.results);
+    }
+    fetchData();
+  }, [id, count]);
 
   useEffect(() => {
     if (searchInput.length >= 3) {
       const filteredQuestions = questions.filter((q) => {
         const re = new RegExp(searchInput, 'gi');
-        const t = Object.values(q.answers).filter((a) =>
-          Object.values(a)
-            .join('')
-            .toLowerCase()
-            .includes(searchInput.toLowerCase())
-        );
-        console.log(t);
-        return q.question_body.match(re) || t.length > 0;
+        return q.question_body.match(re);
       });
       setFilteredQuestions(filteredQuestions);
     } else {
       setFilteredQuestions(questions);
     }
   }, [searchInput]);
-
-  const searchItems = (searchValue) => {
-    setSearchInput(searchValue);
-  };
 
   const doMarkQuestionAsHelpful = (question_id) => {
     const t = questions.map((q) => {
@@ -62,8 +53,8 @@ function Questions() {
   return (
     <div>
       <h1 className="my-5">QUESTIONS AND ANSWERS</h1>
-      <div className="relative flex w-full flex-wrap items-stretch mb-3">
-        <Searchbar />
+      <div className="relative flex w-full flex-wrap items-stretch mb-7">
+        <Searchbar setSearchInput={setSearchInput} />
         <span
           style={{
             right: '0px',
@@ -103,13 +94,9 @@ function Questions() {
         <QuestionForm />
       </Modal>
       <div className="my-4">
-        {filteredQuestions.length > 2 && (
-          <Button>
-            {isShowingMoreQuestions
-              ? 'Show Less Questions'
-              : ' More Answered Questions'}
-          </Button>
-        )}
+        <Button onClick={() => setCount(count + 2)}>
+          {'More Answered Questions'}
+        </Button>
 
         <Button className="ml-3" onClick={() => setIsShowingModal(true)}>
           Add a Question +

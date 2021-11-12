@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 
-import { StyledForm, StyledFormRow, StyledLabel } from './styles';
-import Button from '@components/Button';
 import { createQuestion, getProductById } from '@api';
+
+import Button from '@components/Button';
+import { StyledForm, StyledFormRow, StyledLabel } from './styles';
 
 const QuestionForm = ({ setIsShowing }) => {
   const {
@@ -83,7 +84,9 @@ const QuestionForm = ({ setIsShowing }) => {
           </div>
         </StyledFormRow>
         <div className="flex">
-          <Button style={{ marginLeft: 'auto' }}>Submit</Button>
+          <Button style={{ marginLeft: 'auto', borderRadius: '0.5rem' }}>
+            Submit
+          </Button>
         </div>
       </StyledForm>
     </>

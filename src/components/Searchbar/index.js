@@ -1,9 +1,12 @@
 import React from 'react';
 import { StyledSearchbar } from './styles';
 
-const Searchbar = () => {
+const Searchbar = ({ setSearchInput }) => {
   return (
-    <StyledSearchbar placeholder="HAVE A QUESTION? SEARCH FOR THE ANSWERS..." />
+    <StyledSearchbar
+      onChange={(e) => setSearchInput(e.target.value)}
+      placeholder="HAVE A QUESTION? SEARCH FOR THE ANSWERS..."
+    />
   );
 };
 

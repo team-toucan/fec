@@ -9,10 +9,12 @@ const Answers = ({ question }) => {
   const [isShowingMoreAnswers, setIsShowingMoreAnswers] = useState(false);
 
   useEffect(() => {
-    getAnswersBuQuestionId(question.question_id).then((res) => {
-      setAnswers(res.data.results);
-    });
-  }, []);
+    async function fetchData() {
+      const { data } = await getAnswersBuQuestionId(question.question_id);
+      setAnswers(data.results);
+    }
+    fetchData();
+  }, [question]);
 
   const doUpdateAnswers = (answer_id) => {
     const filteredAnswers = answers.filter((a) => a.answer_id !== answer_id);

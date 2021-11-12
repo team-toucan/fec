@@ -20,7 +20,7 @@ const Question = ({ question, doMarkQuestionAsHelpful, isHidden }) => {
     }
   };
   return (
-    <div className="my-2" style={{ display: isHidden ? 'none' : 'flex' }}>
+    <div className="my-2" style={{ display: 'flex' }}>
       <h1 className="font-bold text-xl ">
         <span>Q:</span> {question.question_body}
       </h1>
@@ -30,10 +30,15 @@ const Question = ({ question, doMarkQuestionAsHelpful, isHidden }) => {
           Yes
         </span>{' '}
         ({question.question_helpfulness}) |{' '}
-        <span onClick={() => setIsShowing(true)}>Add Answer</span>
+        <span
+          className="cursor-pointer underline"
+          onClick={() => setIsShowing(true)}
+        >
+          Add Answer
+        </span>
       </div>
       <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
-        <AnswerForm question_id={question.question_id} />
+        <AnswerForm question={question} />
       </Modal>
     </div>
   );
