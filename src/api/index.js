@@ -13,7 +13,8 @@ const baseUrl = axios.create({
 */
 const getAllProducts = () => baseUrl.get('/products');
 
-const getProductById = (productId) => baseUrl.get(`/products/${productId}`);
+export const getProductById = (productId) =>
+  baseUrl.get(`/products/${productId}`);
 
 const getProductStyleById = (productId) =>
   baseUrl.get(`/products/${productId}/styles`);
@@ -95,9 +96,28 @@ export const reportAnswer = (answer_id) =>
 // const getProductReviewMetaData = (productId) =>
 //   baseUrl.get(`/reviews/meta?product_id=${productId}`);
 
+const addProductToCart = (sku_id) => {
+  return baseUrl({
+    method: 'post',
+    url: '/cart',
+    data: {
+      sku_id,
+    },
+  });
+};
+
+const getUserCart = () => {
+  return baseUrl({
+    method: 'get',
+    url: '/cart',
+  });
+};
+
 export {
   getAllProducts,
   getProductReviews,
   getProductById,
   getProductStyleById,
+  addProductToCart,
+  getUserCart,
 };
