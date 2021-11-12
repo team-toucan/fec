@@ -116,7 +116,6 @@ const getUserCart = () => {
 export {
   getAllProducts,
   getProductReviews,
-  getProductById,
   getProductStyleById,
   addProductToCart,
   getUserCart,
