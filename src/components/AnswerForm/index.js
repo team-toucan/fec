@@ -53,7 +53,7 @@ const AnswerFrom = ({ question, setIsShowing }) => {
               className="w-full h-32 bg-gray-200 px-3 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:outline-none focus:bg-white mt-1"
             />
             <p className="text-xs italic mb-5 text-red-500">
-              {errors.body?.type === 'required' && 'Question is required'}
+              {errors.body?.type === 'required' && 'Answer is required'}
             </p>
             <StyledLabel htmlFor="username">Nickname</StyledLabel>
             <input
