@@ -10,6 +10,7 @@ const Answer = (props) => {
     isHidden,
     questionAskerName,
   } = props;
+  console.log('🚀 ~ file: index.js ~ line 13 ~ Answer ~ answer', answer);
 
   const doMarkAnswerAsHelpful = async () => {
     try {
@@ -51,9 +52,15 @@ const Answer = (props) => {
           Report
         </span>
       </div>
-      {answer.photos.map((p) => (
-        <img scr={p} style={{ maxWidth: '40px' }} />
-      ))}
+      <div className="flex">
+        {answer.photos.map((p, i) => (
+          <img
+            src={p.url}
+            alt="..."
+            className={`object-cover h-24 w-24 ${i > 0 ? 'ml-6' : ''}`}
+          />
+        ))}
+      </div>
     </div>
   );
 };
