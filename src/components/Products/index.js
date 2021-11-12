@@ -7,9 +7,11 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    getAllProducts().then((res) => {
-      setProducts(res.data);
-    });
+    async function fetchData() {
+      const { data } = await getAllProducts();
+      setProducts(data);
+    }
+    fetchData();
   }, []);
 
   return (
