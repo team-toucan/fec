@@ -16,6 +16,7 @@
     - [**Overview**](#overview-component)
     - [**Questions & Answers**](#questions-and-answers-component)
     - [**Related Products**](#related-products-component)
+2. [**Data Flow Visualizations:**](#component-data-flow-visualizations)
 3. [**Repo Installation & Contribution Guidelines**](#repo-instructions)
 
 ###### **Built With:** ![JavaScript](https://img.shields.io/badge/JavaScript%20-%23323330.svg?&style=flat-square&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/React%20-%2320232a.svg?&style=flat-square&logo=react&logoColor=%2361DAFB) ![Axios](https://img.shields.io/badge/-Axios-blueviolet) ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
@@ -29,8 +30,6 @@
 
 #### Overview Component:
 <img src="https://media.giphy.com/media/qKiEGdzbVUDyjh4D5z/source.gif" width="800"/>
-<p align="center">Visualization of Data Flow:</p>
-<img src="https://i.imgur.com/QalXvxh.png" width="600"/>
 
 #### Questions and Answers Component:
 
@@ -38,7 +37,13 @@
 
 <hr>
 
-## Repo Instructions
+<h3 align="center" style="font-size: 2.7rem;">Component Data Flow Visualizations</h3>
+<p>Overview Component</p>
+<img src="https://i.imgur.com/QalXvxh.png" width="600"/>
+
+<hr>
+
+<h3 align="center" style="font-size: 2.7rem;">Repo Instructions</h3>
 
 ### I. To run app on local machine:
 
