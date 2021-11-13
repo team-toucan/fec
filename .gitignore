@@ -17,3 +17,5 @@ config.js
 ehthumbs.db
 Thumbs.db
 
+.firebase
+.github
