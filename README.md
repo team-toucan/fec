@@ -2,6 +2,9 @@
 
 NYC-39 Team Toucan Front End Capstone Repository
 
+# Overview Component:
+<img src="https://media.giphy.com/media/qKiEGdzbVUDyjh4D5z/source.gif" width="1000"/>
+
 ## Running the App Locally
 
 1. Make sure you've pulled the version you want to run
