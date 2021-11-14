@@ -34,7 +34,7 @@ const Overview = () => {
     updateState((prevValues) => {
       return { ...prevValues, productById: data };
     });
-  }, [id]);
+  }, []);
 
   useEffect(async () => {
     const { data } = await getProductStyleById(id);
@@ -45,8 +45,7 @@ const Overview = () => {
         photosForStyle: data.results[state.currentStyle].photos,
       };
     });
-  }, [id]);
-
+  }, []);
 
   useEffect(async () => {
     const { data } = await getUserCart();
