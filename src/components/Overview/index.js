@@ -57,8 +57,6 @@ const Overview = () => {
     });
   }, []);
 
-  console.log('state 🤩', state);
-
   return (
     <OverviewDiv>
       <div style={{ display: 'flex', flex: '10' }}>
