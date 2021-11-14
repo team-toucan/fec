@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { DefaultViewDiv } from './imageGalleryStyles';
+import { DefaultViewDiv } from './styles';
 import MainImgButton from '@components/Overview/ImageGallery/Buttons/MainImgButton.jsx';
 import ThumbnailsButton from '@components/Overview/ImageGallery/Buttons/ThumbnailsButton.jsx';
 import ExpandedView from '@components/Overview/ImageGallery/ExpandedView.jsx';
@@ -17,6 +17,7 @@ const DefaultView = ({ state, updateState }) => {
     updateIdxs({
       startIdx: 0,
       endIdx:
+        /* renders only 7 thumbnails at a time */
         state.photosForStyle.length >= 7 ? 7 : state.photosForStyle.length,
     });
   }, [state.photosForStyle]);
@@ -81,7 +82,14 @@ const DefaultView = ({ state, updateState }) => {
             >
               {state.productStyleById.results !== undefined &&
                 state.photosForStyle.map((photo, idx, collection) => {
+                  /*
+                    conditional statements for rendering image gallery thumbnails
+                    only renders 7 thumbnails at a time
+                    thumbnails have click handler which changes currentPhoto state
+                    which then renders the outer div containing thick bottom border
+                   */
                   return idx >= idxs.startIdx && idx < idxs.endIdx ? (
+                    /* if thumbnail selected, renders div with thick bottom border */
                     idx === state.currentPhoto ? (
                       <div
                         style={{
@@ -104,6 +112,10 @@ const DefaultView = ({ state, updateState }) => {
                         />
                       </div>
                     ) : (
+                      /*
+                        else renders thick transparent bottom border
+                        transparent to keep spacing between thumbnails consistent
+                      */
                       <div
                         style={{
                           display: 'flex',
