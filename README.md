@@ -32,7 +32,7 @@
 
 
 #### Overview Component:
-<img src="https://media.giphy.com/media/50vlu7KfPkdgZxaTQ1/source.gif" width="800"/>
+<img src="https://media.giphy.com/media/g91FrZEQuBwNrjOsaZ/source.gif" width="800"/>
 
 #### Questions and Answers Component:
 
