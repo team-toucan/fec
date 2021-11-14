@@ -6,20 +6,19 @@ import { getProductById } from "../../api";
 const ComparisonContent = ({ relatedItem, currentItem }) => {
   // API call to fetch current item features - refactor later to draw on overview?
   // gets passed in related item features
-  var newArr = [];
+  var curArr = [];
+  var relArr = [];
   if (currentItem.features != undefined) {
     for (var i = 0; i < currentItem.features.length; i++) {
-      newArr.push(currentItem.features[i].value);
+      curArr.push(currentItem.features[i].value);
     }
   }
 
   if (relatedItem.features != undefined) {
     for (var i = 0; i < relatedItem.features.length; i++) {
-      newArr.push(relatedItem.features[i].value);
+      relArr.push(relatedItem.features[i].value);
     }
   }
-
-  let uniqueFeat = [...new Set(newArr)];
 
   return (
     <div>
@@ -31,20 +30,34 @@ const ComparisonContent = ({ relatedItem, currentItem }) => {
           <thead className="tableHead">
             <tr>
               <td>{currentItem.name}</td>
-              <td>feature</td>
               <td>{relatedItem.name}</td>
             </tr>
           </thead>
           <tbody>
-            {uniqueFeat.map((trait, index) => {
-              return (
-                <tr key={index}>
-                  <td></td>
-                  <td>{trait}</td>
-                  <td></td>
-                </tr>
-              );
-            })}
+            <td>
+              {curArr.map((trait, index) => {
+                return (
+                  <tr key={index}>
+                    <td></td>
+                    <td>{trait}</td>
+                    <td></td>
+                  </tr>
+                );
+              })}
+            </td>
+            <td>
+              <tbody>
+                {relArr.map((trait, index) => {
+                  return (
+                    <tr key={index}>
+                      <td></td>
+                      <td>{trait}</td>
+                      <td></td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </td>
           </tbody>
         </table>
       </div>
