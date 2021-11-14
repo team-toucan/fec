@@ -6,7 +6,7 @@ import ProductOverview from '@components/Overview/ProductInfo/ProductOverview.js
 import StyleSelector from '@components/Overview/StyleSelector';
 import AddToCart from '@components/Overview/AddToCart';
 import Share from '@components/Overview/ProductInfo/Share.jsx';
-import { OverviewDiv } from './overviewStyles';
+import { OverviewDiv } from './styles';
 import {
   getAllProducts,
   getProductById,
@@ -34,7 +34,7 @@ const Overview = () => {
     updateState((prevValues) => {
       return { ...prevValues, productById: data };
     });
-  }, []);
+  }, [id]);
 
   useEffect(async () => {
     const { data } = await getProductStyleById(id);
@@ -45,7 +45,7 @@ const Overview = () => {
         photosForStyle: data.results[state.currentStyle].photos,
       };
     });
-  }, []);
+  }, [id]);
 
 
   useEffect(async () => {
@@ -57,7 +57,6 @@ const Overview = () => {
       };
     });
   }, []);
-
 
   return (
     <OverviewDiv>
@@ -76,7 +75,11 @@ const Overview = () => {
         >
           <ProductInfo state={state} updateState={updateState} />
           <StyleSelector state={state} updateState={updateState} />
-          <AddToCart state={state} updateState={updateState} />
+          <AddToCart
+            state={state}
+            updateState={updateState}
+            addProductToCart={addProductToCart}
+          />
           <Share state={state} />
         </div>
       </div>
