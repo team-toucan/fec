@@ -1,8 +1,7 @@
 import React from 'react';
 import DefaultView from '@components/Overview/ImageGallery/DefaultView.jsx';
 import ExpandedView from '@components/Overview/ImageGallery/ExpandedView.jsx';
-import { ImageGalleryDiv } from './imageGalleryStyles';
-import { DefaultViewDiv } from './imageGalleryStyles';
+import { ImageGalleryDiv, DefaultViewDiv } from './styles';
 
 const ImageGallery = ({ state, updateState }) => {
   return (

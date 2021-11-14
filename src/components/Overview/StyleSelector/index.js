@@ -1,8 +1,6 @@
 import React from 'react';
 
 const StyleSelector = ({ state, updateState }) => {
-  // const results = state.productStyleById.results;
-
   const updateCurrentStyle = (e) => {
     e.preventDefault();
     updateState((prevValues) => {
@@ -74,25 +72,6 @@ const StyleSelector = ({ state, updateState }) => {
                     class={idx}
                     onClick={updateCurrentStyle}
                   >
-                    {/* <img
-                    src={style.photos[0].thumbnail_url}
-                    key={idx}
-                    style={{
-                      // minWidth: '70px',
-                      // // height: '25px',
-                      objectFit: 'cover',
-                      cursor: 'pointer',
-                      // borderRadius: '50%',
-                      // border: '1px solid black',
-                      // marginRight: '20px',
-                      // marginTop: '10px',
-                      // marginBottom: '10px',
-                      width: '8vh',
-                      height: '8vh',
-                    }}
-                    class={idx}
-                    onClick={updateCurrentStyle}
-                  /> */}
                     {idx === state.currentStyle && (
                       <div
                         style={{

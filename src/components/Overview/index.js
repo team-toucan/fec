@@ -6,7 +6,7 @@ import ProductOverview from '@components/Overview/ProductInfo/ProductOverview.js
 import StyleSelector from '@components/Overview/StyleSelector';
 import AddToCart from '@components/Overview/AddToCart';
 import Share from '@components/Overview/ProductInfo/Share.jsx';
-import { OverviewDiv } from './overviewStyles';
+import { OverviewDiv } from './styles';
 import {
   getAllProducts,
   getProductById,
@@ -47,6 +47,7 @@ const Overview = () => {
     });
   }, [id]);
 
+
   useEffect(async () => {
     const { data } = await getUserCart();
     updateState((prevValues) => {
@@ -74,7 +75,11 @@ const Overview = () => {
         >
           <ProductInfo state={state} updateState={updateState} />
           <StyleSelector state={state} updateState={updateState} />
-          <AddToCart state={state} updateState={updateState} />
+          <AddToCart
+            state={state}
+            updateState={updateState}
+            addProductToCart={addProductToCart}
+          />
           <Share state={state} />
         </div>
       </div>
