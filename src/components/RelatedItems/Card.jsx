@@ -5,6 +5,9 @@ import Name from "./Name.jsx";
 import Features from "./Features.jsx";
 import ComparisonContent from "./ComparisonContent.jsx";
 import Modal from "@components/Modal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { BrowserRouter, Link } from "react-router-dom";
 
 const Card = ({ relatedId, currentItemID }) => {
   const [showingitem, updateCurItem] = useState({ info: {} });
@@ -41,14 +44,21 @@ const Card = ({ relatedId, currentItemID }) => {
   return (
     <div style={{ display: "flex" }}>
       <div>
-        <img
-          class="cardImg"
-          src={imgURL.thumbnail_url}
-          onClick={() => setIsShowing(true)}
-        />
+        <div>
+          <div>
+            <FontAwesomeIcon
+              icon={faStar}
+              className="star"
+              onClick={() => setIsShowing(true)}
+            />
+          </div>
+          <Link to={`/products/${relateditem.id}`}>
+            <img class="cardImg" src={imgURL.thumbnail_url} />
+          </Link>
+        </div>
         <p class="smolFont">{relateditem.category}</p>
         <h3 class="nameFont">{relateditem.name}</h3>
-        <p class="smolFont">{relateditem.default_price}</p>
+        <p class="smolFont">${relateditem.default_price}</p>
       </div>
       <Modal isShowing={isShowing} setIsShowing={setIsShowing}>
         <p>
