@@ -12,11 +12,15 @@
 
 ### Table of Contents:
 
-1. [**Visual Demos:**](#visual-demos)
+1. Links:
+    - Our deployed application: https://catwalk-764df.web.app/
+    - Our project management / kanban board / ticketing system: https://github.com/team-toucan/fec/projects/1
+
+2. [**Visual Demos:**](#visual-demos)
     - [**Overview**](#overview-component)
     - [**Questions & Answers**](#questions-and-answers-component)
     - [**Related Products**](#related-products-component)
-2. [**Data Flow Visualizations:**](#component-data-flow-visualizations)
+3. [**Data Flow Visualizations:**](#component-data-flow-visualizations)
     - [**Overview**](#overview-data-flow)
     - [**Questions & Answers**](#questions-and-answers-data-flow)
     - [**Related Products**](#related-products-data-flow)
