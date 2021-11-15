@@ -13,17 +13,18 @@
 ### Table of Contents:
 
 1. Links:
-    - Our deployed application: https://catwalk-764df.web.app/
-    - Our project management / kanban board / ticketing system: https://github.com/team-toucan/fec/projects/1
+
+   - Our deployed application: https://catwalk-764df.web.app/
+   - Our project management / kanban board / ticketing system: https://github.com/team-toucan/fec/projects/1
 
 2. [**Visual Demos:**](#visual-demos)
-    - [**Overview**](#overview-component)
-    - [**Questions & Answers**](#questions-and-answers-component)
-    - [**Related Products**](#related-products-component)
+   - [**Overview**](#overview-component)
+   - [**Questions & Answers**](#questions-and-answers-component)
+   - [**Related Products**](#related-products-component)
 3. [**Data Flow Visualizations:**](#component-data-flow-visualizations)
-    - [**Overview**](#overview-data-flow)
-    - [**Questions & Answers**](#questions-and-answers-data-flow)
-    - [**Related Products**](#related-products-data-flow)
+   - [**Overview**](#overview-data-flow)
+   - [**Questions & Answers**](#questions-and-answers-data-flow)
+   - [**Related Products**](#related-products-data-flow)
 4. [**Repo Installation & Contribution Guidelines**](#repo-instructions)
 
 ###### **Built With:** ![JavaScript](https://img.shields.io/badge/JavaScript%20-%23323330.svg?&style=flat-square&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/React%20-%2320232a.svg?&style=flat-square&logo=react&logoColor=%2361DAFB) ![Axios](https://img.shields.io/badge/-Axios-blueviolet) ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
@@ -32,17 +33,15 @@
 
 <h3 align="center" style="font-size: 2.7rem;">VISUAL DEMOS</h3>
 
-
-
-
 #### Overview Component:
+
 <img src="https://media.giphy.com/media/g91FrZEQuBwNrjOsaZ/source.gif" width="800"/>
 
 #### Questions and Answers Component:
 
 #### Related Products Component:
 
-<hr>
+<img src="https://media.giphy.com/media/DWKvH9CtotkdfHrqzJ/giphy.gif">
 
 <h3 align="center" style="font-size: 2.7rem;">Component Data Flow Visualizations</h3>
 
@@ -70,7 +69,6 @@
 8. Start the server `npm run start`
 9. Navigate to [localhost:3000](http://localhost:3000) in your browser
 
-
 ### II. Collaboration Guidelines:
 
 - Do not work directly on the `main` branch
@@ -78,4 +76,3 @@
 - Commit changes frequently
 - Any changes needs to be pushed to feature branch, then merged via pull request into dev branch
 - Another team member should review the pull request before merging to dev
-
