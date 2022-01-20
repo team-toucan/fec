@@ -4,7 +4,7 @@
     <th colspan="4">Team Toucan's Front-End Capstone Members</th>
   <tr>
       <td align="center"><a href="https://github.com/mchristenson5891"><img src="https://avatars.githubusercontent.com/u/29007891?v=4" width="100px;" alt=""/><br /><sub><b>Michael Christenson</b></sub></a<br /></td>
-    <td align="center"><a href="https://github.com/lamia-haider"><img src="https://avatars.githubusercontent.com/u/36172730?v=4" width="100px;" alt=""/><br /><sub><b>Lamia Hader</b></sub></a<br /></td>
+    <td align="center"><a href="https://github.com/lamia-haider"><img src="https://avatars.githubusercontent.com/u/36172730?v=4" width="100px;" alt=""/><br /><sub><b>Lamia Haider</b></sub></a<br /></td>
     <td align="center"><a href="https://github.com/richardhyesungo"><img src="https://avatars.githubusercontent.com/u/18966944?v=4" width="100px;" alt=""/><br /><sub><b>Richard O</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/SGeoffrey"><img src="https://avatars.githubusercontent.com/u/79271297?v=4" width="100px;" alt=""/><br /><sub><b>Sam Geoffrey</b></sub></a><br /></td>
   </tr>
@@ -37,7 +37,6 @@
 
 <img src="https://media.giphy.com/media/g91FrZEQuBwNrjOsaZ/source.gif" width="800"/>
 
-#### Questions and Answers Component:
 
 #### Related Products Component:
 
@@ -48,10 +47,6 @@
 #### Overview Data Flow:
 
 <img src="https://i.imgur.com/QalXvxh.png" width="600"/>
-
-#### Questions and Answers Data Flow:
-
-#### Related Products Data Flow:
 
 <hr>
 
