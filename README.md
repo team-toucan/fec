@@ -14,7 +14,6 @@
 
 1. Links:
 
-   - Our deployed application: https://catwalk-764df.web.app/
    - Our project management / kanban board / ticketing system: https://github.com/team-toucan/fec/projects/1
 
 2. [**Visual Demos:**](#visual-demos)
